@@ -1002,11 +1002,17 @@
           return;
         }
 
-        const navRect = storyNav.getBoundingClientRect();
-        const titleRect = storyTitle.getBoundingClientRect();
-        const shouldHide = titleRect.top <= navRect.bottom;
+        const titleTop = storyTitle.getBoundingClientRect().top;
+        const navHeight = storyNav.offsetHeight || storyNav.getBoundingClientRect().height;
+        const hideAt = navHeight + 4;
+        const showAt = navHeight + 28;
+        const isHidden = storyNav.classList.contains('story-nav-hidden');
 
-        storyNav.classList.toggle('story-nav-hidden', shouldHide);
+        if (!isHidden && titleTop <= hideAt) {
+          storyNav.classList.add('story-nav-hidden');
+        } else if (isHidden && titleTop > showAt) {
+          storyNav.classList.remove('story-nav-hidden');
+        }
       }
 
       function scrollToAppSection(hash, behavior = 'smooth') {
