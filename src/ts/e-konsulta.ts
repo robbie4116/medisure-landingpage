@@ -1,1 +1,3 @@
-// Unused entrypoint retained as no-op to avoid accidental build reference issues.
+import { setupPageTransitionNavigation } from "./shared";
+
+setupPageTransitionNavigation();
