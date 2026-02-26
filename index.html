@@ -122,6 +122,10 @@
         .hero-cta-icon {
           transition: none;
         }
+
+        #story-nav {
+          transition: none;
+        }
       }
 
       .app-wrapper {
@@ -161,6 +165,17 @@
 
       .nav-link:hover::after {
         width: 100%;
+      }
+
+      #story-nav {
+        transition: transform 0.22s ease, opacity 0.22s ease;
+        will-change: transform, opacity;
+      }
+
+      #story-nav.story-nav-hidden {
+        transform: translateY(calc(-100% - 8px));
+        opacity: 0;
+        pointer-events: none;
       }
 
       .fade-in {
@@ -637,7 +652,7 @@
         </footer>
       </div>
       <div id="story-page" class="hidden h-full">
-        <nav class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-medi-green-100">
+        <nav id="story-nav" class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-medi-green-100">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-wrap items-center h-auto md:h-24 py-3 md:py-0">
               <a class="order-1 flex items-center gap-2 cursor-pointer" href="/index.html">
@@ -657,7 +672,7 @@
 
         <section class="pt-8 md:pt-10 pb-12 px-4 bg-gradient-to-b from-medi-green-50 to-white">
           <div class="max-w-4xl mx-auto text-center fade-in">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-medi-green-600 mb-4">Our Story</h1>
+            <h1 id="story-title" class="text-4xl md:text-6xl font-extrabold text-medi-green-600 mb-4">Our Story</h1>
             <p class="text-xl text-gray-600">How MediSure Plus came to life and our mission for accessible healthcare</p>
           </div>
         </section>
@@ -969,6 +984,29 @@
           storyPage.classList.remove('hidden');
           appContainer.scrollTop = 0;
         }
+
+        updateStoryNavVisibility();
+      }
+
+      function updateStoryNavVisibility() {
+        const storyPage = document.getElementById('story-page');
+        const storyNav = document.getElementById('story-nav');
+        const storyTitle = document.getElementById('story-title');
+
+        if (!storyPage || !storyNav || !storyTitle) {
+          return;
+        }
+
+        if (storyPage.classList.contains('hidden')) {
+          storyNav.classList.remove('story-nav-hidden');
+          return;
+        }
+
+        const navRect = storyNav.getBoundingClientRect();
+        const titleRect = storyTitle.getBoundingClientRect();
+        const shouldHide = titleRect.top <= navRect.bottom;
+
+        storyNav.classList.toggle('story-nav-hidden', shouldHide);
       }
 
       function scrollToAppSection(hash, behavior = 'smooth') {
@@ -998,6 +1036,24 @@
       function scrollToAppSectionWithSettle(hash) {
         scrollToAppSection(hash, 'smooth');
       }
+
+      const appContainer = document.getElementById('app-container');
+      if (appContainer) {
+        let isTicking = false;
+        appContainer.addEventListener('scroll', () => {
+          if (isTicking) {
+            return;
+          }
+
+          isTicking = true;
+          requestAnimationFrame(() => {
+            updateStoryNavVisibility();
+            isTicking = false;
+          });
+        });
+      }
+
+      window.addEventListener('resize', updateStoryNavVisibility);
 
       document.querySelectorAll('a[href^="#"], a[href^="/index.html#"]').forEach((anchor) => {
         anchor.addEventListener('click', function (e) {
