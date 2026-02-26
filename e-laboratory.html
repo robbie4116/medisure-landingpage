@@ -1,0 +1,591 @@
+﻿<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Medisure e-Laboratory learn more." />
+    <title>e-Laboratory | Medisure</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              jakarta: ['"Plus Jakarta Sans"', "sans-serif"]
+            },
+            colors: {
+              "medi-green": {
+                50: "#f5faf1",
+                100: "#e8f3de",
+                200: "#d4e6b5",
+                300: "#b8d88c",
+                400: "#9cca63",
+                500: "#558b2f",
+                600: "#4a7a28",
+                700: "#3d6620",
+                800: "#305319",
+                900: "#234012"
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        scrollbar-width: thin;
+        scrollbar-color: #9ca3af #f3f4f6;
+      }
+
+      body {
+        animation: pageEnter 0.32s ease both;
+      }
+
+      @keyframes pageEnter {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      body.page-leaving {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.22s ease, transform 0.22s ease;
+      }
+
+      *::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: #f3f4f6;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background: #9ca3af;
+        border: 2px solid #f3f4f6;
+        border-radius: 999px;
+      }
+
+      *::-webkit-scrollbar-thumb:hover {
+        background: #6b7280;
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #16a34a;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body {
+          animation: none;
+        }
+
+        body.page-leaving {
+          transition: none;
+          transform: none;
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body class="h-full font-jakarta text-gray-800">
+    <div class="min-h-full flex flex-col bg-gradient-to-b from-medi-green-50 to-white">
+      <nav class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-medi-green-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-[1fr_auto_1fr] items-center h-20 md:h-24">
+            <a class="flex items-center gap-2" href="/index.html">
+              <img src="/assets/images/logo.png" alt="Medisure" class="h-16 md:h-20 w-auto" />
+            </a>
+            <div class="hidden md:flex items-center gap-6 justify-self-center">
+              <a href="/index.html?scroll=services" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Services</a>
+              <a href="/index.html?scroll=media" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Media</a>
+              <a href="/index.html?page=story" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">About</a>
+              <a href="/privacy-policy.html" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Privacy Policy</a>
+              <a href="/terms-and-conditions.html" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Terms &amp; Conditions</a>
+            </div>
+            <a
+              href="https://myhealth.medisureonline.com/SignIn"
+              class="justify-self-end px-5 py-2.5 bg-white border-2 border-medi-green-600 text-medi-green-600 font-semibold rounded-xl hover:bg-medi-green-50 transition-all duration-300"
+            >
+              Sign In
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <main class="flex-1 pt-8 md:pt-10">
+        <div class="bg-gradient-to-b from-medi-green-50 to-white">
+          <section class="py-12 md:py-16 px-4 border-b border-medi-green-100">
+            <div class="max-w-4xl mx-auto">
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-medi-green-100 rounded-full mb-6">
+                <span class="text-medi-green-700 font-medium text-sm">Updated August 01, 2023</span>
+              </div>
+              <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Comprehensive Laboratory Services</h1>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                With our top of the line equipment and experienced medical personnel, we provide quality health care at affordable prices.
+                We are the first private clinic accredited by Philhealth as a Konsulta provider.
+              </p>
+            </div>
+          </section>
+
+          <section class="py-12 md:py-16 px-4">
+            <div class="max-w-4xl mx-auto">
+              <h2 class="text-2xl font-bold text-gray-900 mb-8">Philhealth Konsulta Package - &#8369;500</h2>
+              <div class="bg-white rounded-2xl p-8 border border-medi-green-100 mb-12">
+                <p class="text-gray-600 leading-relaxed mb-6">Our flagship preventive care package includes:</p>
+                <ul class="space-y-3">
+                  <li class="flex items-start gap-3">
+                    <svg class="w-6 h-6 text-medi-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span class="text-gray-700">Complete Blood Count (CBC)</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <svg class="w-6 h-6 text-medi-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span class="text-gray-700">Urinalysis</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <svg class="w-6 h-6 text-medi-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span class="text-gray-700">Fecalysis</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <svg class="w-6 h-6 text-medi-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span class="text-gray-700">Chest X-Ray</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <svg class="w-6 h-6 text-medi-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span class="text-gray-700">Unlimited Doctor Consultation</span>
+                  </li>
+                </ul>
+                <p class="text-sm text-gray-500 mt-6 italic">*Prices subject to change without prior notice</p>
+              </div>
+
+              <h2 class="text-2xl font-bold text-gray-900 mb-8">Home Services</h2>
+              <div class="bg-white rounded-2xl overflow-hidden border border-medi-green-100 mb-12">
+                <div class="overflow-x-auto">
+                  <table class="w-full">
+                    <thead class="bg-medi-green-100 border-b border-medi-green-200 shadow-sm">
+                      <tr>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900">Service</th>
+                        <th class="px-6 py-4 text-right text-sm font-semibold text-gray-900">Price</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-4 text-gray-700">Home Service-1</td><td class="px-6 py-4 text-right font-medium text-gray-900">&#8369;1,500.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-4 text-gray-700">Home Service-2</td><td class="px-6 py-4 text-right font-medium text-gray-900">&#8369;2,000.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-4 text-gray-700">Home Service-3</td><td class="px-6 py-4 text-right font-medium text-gray-900">&#8369;2,500.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-4 text-gray-700">Home Service-4</td><td class="px-6 py-4 text-right font-medium text-gray-900">&#8369;3,000.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-4 text-gray-700">Chest X-Ray</td><td class="px-6 py-4 text-right font-medium text-gray-900">&#8369;4,000.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-4 text-gray-700">ECG</td><td class="px-6 py-4 text-right font-medium text-gray-900">&#8369;1,200.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-4 text-gray-700">RT-PCR Swab Test (24 Hours)</td><td class="px-6 py-4 text-right font-medium text-gray-900">&#8369;3,000.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-4 text-gray-700">RT-PCR Swab Test (12 Hours)</td><td class="px-6 py-4 text-right font-medium text-gray-900">&#8369;4,000.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-4 text-gray-700">RT-PCR Swab Test (6 Hours)</td><td class="px-6 py-4 text-right font-medium text-gray-900">&#8369;5,500.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-4 text-gray-700">Antigen Swab Test</td><td class="px-6 py-4 text-right font-medium text-gray-900">&#8369;1,200.00</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <h2 class="text-2xl font-bold text-gray-900 mb-8">Complete Medical Services Pricelist</h2>
+              <div class="bg-gradient-to-br from-white to-medi-green-50 rounded-2xl border border-medi-green-200 p-4 md:p-5 mb-5 shadow-md shadow-medi-green-200/60 ring-1 ring-medi-green-100">
+                <div class="grid gap-3 md:grid-cols-[minmax(0,1fr)_220px]">
+                  <label class="block">
+                    <span class="block text-sm font-semibold text-gray-800 mb-2">Search Service</span>
+                    <input
+                      id="pricelist-search"
+                      type="text"
+                      placeholder="Type service name..."
+                      class="w-full px-4 py-2.5 rounded-xl border border-medi-green-200 bg-white text-gray-800 shadow-sm focus:outline-none focus:ring-4 focus:ring-medi-green-200 focus:border-medi-green-400 transition-all"
+                    />
+                  </label>
+                  <label class="block">
+                    <span class="block text-sm font-semibold text-gray-800 mb-2">Price Filter</span>
+                    <select
+                      id="pricelist-range"
+                      class="w-full px-4 py-2.5 rounded-xl border border-medi-green-200 bg-white text-gray-800 shadow-sm focus:outline-none focus:ring-4 focus:ring-medi-green-200 focus:border-medi-green-400 transition-all"
+                    >
+                      <option value="all">All Prices</option>
+                      <option value="0-999">&#8369;0 - &#8369;999</option>
+                      <option value="1000-2999">&#8369;1,000 - &#8369;2,999</option>
+                      <option value="3000+">&#8369;3,000 and above</option>
+                    </select>
+                  </label>
+                </div>
+                <p id="complete-pricelist-count" class="mt-3 text-sm text-gray-600">Showing all services</p>
+              </div>
+              <div class="bg-white rounded-2xl overflow-hidden border border-medi-green-100">
+                <div class="overflow-x-auto max-h-96">
+                  <table class="w-full text-sm">
+                    <thead class="bg-medi-green-100 border-b border-medi-green-200 sticky top-0 shadow-sm">
+                      <tr>
+                        <th class="px-6 py-4 text-left font-semibold text-gray-900">Service</th>
+                        <th class="px-6 py-4 text-right font-semibold text-gray-900">Price</th>
+                      </tr>
+                    </thead>
+                    <tbody id="complete-pricelist-body" class="divide-y divide-gray-200">
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Chest X-Ray</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;500.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">ECG</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;400.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">ABO and Rh</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;390.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">AFB stain</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;225.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">AFP</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,116.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Albumin</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;195.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">ALP</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;265.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">ALT (SGPT)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;181.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Amylase</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;390.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">ANA (Quantitative)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,095.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Anti – TPO</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;3,671.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Anti streptolysin O</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;814.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Anti-Thyroglobulin</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,176.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">AST (SGOT)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;181.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">B-HCG</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,597.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Bicarbonate (CO2)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;432.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Bilirubin Package (TB, DB, IB)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;411.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Blood Culture with ARD</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,741.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">BNP</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;348.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Body Fluid culture</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,053.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">CA 125</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,790.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">CA 15-3</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,720.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">CA 19-9</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,929.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">CA 72-4</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;3,557.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Calcium (Ca)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;237.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">CBC</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;390.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">CEA</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,395.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Chloride (Cl)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;223.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Cholesterol</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;167.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">CKMB</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;788.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">CKMM</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,743.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Complement</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;3,774.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Cortisol</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;878.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Creatinine</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;167.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Creatinine kinase (CK)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;599.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Cystatin C</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,369.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">D-Dimer</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;3,069.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Dengue Ab (IgG/IgM)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;3,222.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Dengue NS1</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,099.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">DHEAS</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,967.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">ESR</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;209.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Estradiol</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,785.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Fecalysis</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;139.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Ferritin</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,134.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Folate</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;9,121.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">FSH</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,185.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">FT3</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;781.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">FT4</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;781.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">GGT</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;530.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Glucose</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;139.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Gram stain</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;244.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">H. pylori Ag (stool)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,046.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">H. pylori Ab (Qualitative)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,890.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">HbA1c (with eAG)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;627.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">HE4</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;4,254.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Hepatitis A IgG</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;613.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Hepatitis A IgM</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;697.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Hepatitis B Core (Total)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;648.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Hepatitis B Core IgM</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;648.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Hepatitis B Envelope Ab</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;648.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Hepatitis B Envelope Ag</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;648.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Hepatitis B Surface Ab</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;411.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Hepatitis B Surface Ag</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;404.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Hepatitis C Ab</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,046.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">HIV Ag/Ab 1&amp;2</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,450.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Homocysteine</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;3,322.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">hsCRP</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,202.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">hsTroponin</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,790.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">iFOBT (FIT)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,255.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">IgE</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,092.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Insulin</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,897.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">intact PTH</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,141.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Ionized Calcium</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;968.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Iron</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;983.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">KOH Mount</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;244.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">LDH</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;320.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">LH</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,018.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Lipase</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;418.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Lipid Profile</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;753.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Magnesium</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;348.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Malarial smear</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;251.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">OGTT (3 point)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,136.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Pap smear w/o specimen</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;585.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Pap smear w/ specimen</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;418.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Peripheral Blood Smear</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;390.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Phosphorus</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;355.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Potassium (K)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;223.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Procalcitonin</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;6,573.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Progesterone</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;251.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Prolactin</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,157.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">PSA – Free</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,162.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">PSA – Total</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,604.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">PT (INR)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;502.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">PTT (APTT)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;523.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Reticulocyte Count</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;251.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Rheumatoid Factor</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;627.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Rubella IgG</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,408.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Rubella IgM</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,720.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Salmonella IgG/IgM (Typhidot)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,509.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Sodium (Na)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;223.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Sputum culture/s</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,053.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Stool culture</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;781.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Swab culture/s</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,053.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">T3</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;460.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">T4</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;460.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Testosterone Total</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,715.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Thyroglobulin</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;5,077.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">TIBC</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;390.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Total Protein</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,720.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Toxoplasma IgG</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;2,720.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">TPA/G</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;334.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">TPHA (Quantitative)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,132.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Triglycerides</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;209.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">TSH</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;760.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Urea</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;167.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Uric Acid (BUA)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;167.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Urinalysis</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;139.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Urine Creatinine (random)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;502.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Urine Creatinine (24hr)</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;488.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Urine Culture/s</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;1,053.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Urine Microalbumin</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;404.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Urine Protein</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;599.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Vitamin B12</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;6,117.00</td></tr>
+                      <tr class="hover:bg-medi-green-50 transition-colors"><td class="px-6 py-3 text-gray-700">Vitamin D</td><td class="px-6 py-3 text-right font-medium text-gray-900">&#8369;3,459.00</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="bg-gray-900 text-white py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Services</h4>
+              <ul class="space-y-3">
+                <li><a href="/index.html#service-elab" class="text-gray-400 hover:text-white transition-colors">e-Laboratory</a></li>
+                <li><a href="/index.html#service-ekonsulta" class="text-gray-400 hover:text-white transition-colors">e-Konsulta</a></li>
+                <li><a href="/index.html#ebotika" class="text-gray-400 hover:text-white transition-colors">e-Botika</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Medisure</h4>
+              <ul class="space-y-3">
+                <li><a href="/index.html" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                <li><a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms-and-conditions.html" class="text-gray-400 hover:text-white transition-colors">Terms &amp; Conditions</a></li>
+              </ul>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Get In Touch</h4>
+              <ul class="space-y-3">
+                <li class="flex items-center gap-2 text-gray-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>medisureteam@medisureonline.com</span>
+                </li>
+                <li class="flex items-center gap-2 text-gray-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>+639668769058</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Follow Us</h4>
+              <div class="flex gap-4">
+                <a href="https://www.facebook.com/MediSurePH" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-medi-green-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+                <a href="https://x.com/medisureplus" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-medi-green-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                  </svg>
+                </a>
+                <a href="https://www.instagram.com/medisureplus/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-medi-green-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="pt-8 border-t border-gray-800 text-center">
+            <p class="text-gray-500">© 2023 — MediSure Corporate FSE. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      (() => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function navigateWithTransition(url) {
+          if (!url) {
+            return;
+          }
+
+          if (prefersReducedMotion) {
+            window.location.href = url;
+            return;
+          }
+
+          document.body.classList.add('page-leaving');
+          setTimeout(() => {
+            window.location.href = url;
+          }, 220);
+        }
+
+        function setupPricelistFilters() {
+          const tbody = document.getElementById('complete-pricelist-body');
+          const searchInput = document.getElementById('pricelist-search');
+          const rangeSelect = document.getElementById('pricelist-range');
+          const countLabel = document.getElementById('complete-pricelist-count');
+
+          if (!tbody || !searchInput || !rangeSelect) {
+            return;
+          }
+
+          const rows = Array.from(tbody.querySelectorAll('tr'));
+          if (!rows.length) {
+            return;
+          }
+
+          const parsePrice = (value) => {
+            const parsed = Number.parseFloat(String(value).replace(/[^\d.]/g, ''));
+            return Number.isFinite(parsed) ? parsed : 0;
+          };
+
+          const items = rows.map((row, index) => {
+            const service = (row.children[0]?.textContent || '').trim();
+            const priceText = (row.children[1]?.textContent || '').trim();
+            return {
+              row,
+              index,
+              serviceLower: service.toLowerCase(),
+              price: parsePrice(priceText)
+            };
+          });
+
+          const emptyRow = document.createElement('tr');
+          emptyRow.innerHTML =
+            '<td colspan="2" class="px-6 py-8 text-center text-gray-500">No matching services found.</td>';
+
+          const applyFilters = () => {
+            const query = String(searchInput.value || '').trim().toLowerCase();
+            const range = String(rangeSelect.value || 'all');
+
+            const filtered = items.filter((item) => {
+              const matchesQuery = !query || item.serviceLower.includes(query);
+              let matchesRange = true;
+
+              if (range === '0-999') {
+                matchesRange = item.price <= 999;
+              } else if (range === '1000-2999') {
+                matchesRange = item.price >= 1000 && item.price <= 2999;
+              } else if (range === '3000+') {
+                matchesRange = item.price >= 3000;
+              }
+
+              return matchesQuery && matchesRange;
+            });
+
+            tbody.innerHTML = '';
+
+            if (!filtered.length) {
+              tbody.appendChild(emptyRow);
+            } else {
+              filtered
+                .sort((a, b) => a.index - b.index)
+                .forEach((item) => tbody.appendChild(item.row));
+            }
+
+            if (countLabel) {
+              if (!query && range === 'all') {
+                countLabel.textContent = `Showing all ${items.length} services`;
+              } else {
+                countLabel.textContent = `Showing ${filtered.length} of ${items.length} services`;
+              }
+            }
+          };
+
+          searchInput.addEventListener('input', applyFilters);
+          rangeSelect.addEventListener('change', applyFilters);
+          applyFilters();
+        }
+
+        setupPricelistFilters();
+
+        document.addEventListener('click', (event) => {
+          const link = event.target.closest('a');
+          if (!link) {
+            return;
+          }
+
+          if (
+            event.defaultPrevented ||
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey
+          ) {
+            return;
+          }
+
+          const href = link.getAttribute('href');
+          if (!href || href === '#' || href.startsWith('#')) {
+            return;
+          }
+
+          if (
+            href.startsWith('mailto:') ||
+            href.startsWith('tel:') ||
+            href.startsWith('javascript:') ||
+            link.target === '_blank' ||
+            link.hasAttribute('download')
+          ) {
+            return;
+          }
+
+          event.preventDefault();
+          navigateWithTransition(link.href);
+        });
+      })();
+    </script>
+  </body>
+</html>
+
+

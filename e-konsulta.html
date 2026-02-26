@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Medisure e-Konsulta learn more." />
+    <title>e-Konsulta | Medisure</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              jakarta: ['"Plus Jakarta Sans"', "sans-serif"]
+            },
+            colors: {
+              "medi-green": {
+                50: "#f5faf1",
+                100: "#e8f3de",
+                200: "#d4e6b5",
+                300: "#b8d88c",
+                400: "#9cca63",
+                500: "#558b2f",
+                600: "#4a7a28",
+                700: "#3d6620",
+                800: "#305319",
+                900: "#234012"
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        scrollbar-width: thin;
+        scrollbar-color: #9ca3af #f3f4f6;
+      }
+
+      body {
+        animation: pageEnter 0.32s ease both;
+      }
+
+      @keyframes pageEnter {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      body.page-leaving {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.22s ease, transform 0.22s ease;
+      }
+
+      *::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: #f3f4f6;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background: #9ca3af;
+        border: 2px solid #f3f4f6;
+        border-radius: 999px;
+      }
+
+      *::-webkit-scrollbar-thumb:hover {
+        background: #6b7280;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #dcfce7 100%);
+      }
+
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(22, 163, 74, 0.25);
+    }
+    .feature-card {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -18px rgba(22, 163, 74, 0.35);
+      border-color: #9cca63;
+    }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #15803d 0%, #14532d 100%);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #16a34a;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body {
+          animation: none;
+        }
+
+        body.page-leaving {
+          transition: none;
+          transform: none;
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body class="h-full font-jakarta text-gray-800">
+    <div class="min-h-full gradient-bg">
+      <nav class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-medi-green-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-[1fr_auto_1fr] items-center h-20 md:h-24">
+            <a class="flex items-center gap-2" href="/index.html">
+              <img src="/assets/images/logo.png" alt="Medisure" class="h-16 md:h-20 w-auto" />
+            </a>
+            <div class="hidden md:flex items-center gap-6 justify-self-center">
+              <a href="/index.html?scroll=services" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Services</a>
+              <a href="/index.html?scroll=media" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Media</a>
+              <a href="/index.html?page=story" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">About</a>
+              <a href="/privacy-policy.html" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Privacy Policy</a>
+              <a href="/terms-and-conditions.html" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Terms &amp; Conditions</a>
+            </div>
+            <a
+              href="https://myhealth.medisureonline.com/SignIn"
+              class="justify-self-end px-5 py-2.5 bg-white border-2 border-medi-green-600 text-medi-green-600 font-semibold rounded-xl hover:bg-medi-green-50 transition-all duration-300"
+            >
+              Sign In
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <main class="pt-8 md:pt-10 pb-16 md:pb-24 px-4">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-medi-green-100 rounded-full mb-6">
+              <span class="w-2 h-2 bg-medi-green-500 rounded-full animate-pulse"></span>
+              <span class="text-medi-green-700 font-medium text-sm">AI-Powered Diagnostic Assistant</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6">
+              A.I.D.A.
+              <span class="block text-medi-green-600 mt-2">Your AI Diagnostic Assistant</span>
+            </h1>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
+            <div class="flex items-center justify-center">
+              <div class="w-full aspect-square bg-gradient-to-br from-medi-green-100 to-medi-green-200 rounded-3xl border-2 border-medi-green-200 overflow-hidden">
+                <img src="/assets/images/aida_photo.png" alt="A.I.D.A." loading="lazy" class="w-full h-full object-cover" />
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">What is A.I.D.A?</h2>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                  A.I.D.A is a tool to help clinicians provide better over-all patient care by managing patient
+                  information through concise summaries of relevant details needed during patient visits. It helps in
+                  better clinician efficiency by reducing manual documentation and improved patient-doctor engagement.
+                </p>
+              </div>
+              <div class="bg-medi-green-50 border-l-4 border-medi-green-600 p-6 rounded-xl">
+                <h3 class="font-semibold text-gray-900 mb-3">The Need in the Philippines</h3>
+                <p class="text-gray-600 leading-relaxed">
+                  In the Philippines where physician to patient ratio is
+                  <span class="font-bold text-medi-green-600">1:28,000</span> (WHO standard is 1:1000),
+                  <span class="font-bold text-medi-green-600">A.I.D.A</span> can
+                  assist physicians, especially in underserved areas, through easy access of patient's medical and his
+                  or her family history, including laboratory and imaging results as stored in its electronic health
+                  record.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6 mb-16">
+            <div class="card-hover feature-card bg-white p-6 rounded-2xl border border-gray-100">
+              <div class="w-12 h-12 bg-medi-green-100 rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-medi-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-gray-900 mb-2">Data Correlation</h3>
+              <p class="text-sm text-gray-600">
+                A.I.D.A correlates all stored patient data and processes initial findings for better insights.
+              </p>
+            </div>
+            <div class="card-hover feature-card bg-white p-6 rounded-2xl border border-gray-100">
+              <div class="w-12 h-12 bg-medi-green-100 rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-medi-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-gray-900 mb-2">Efficiency Boost</h3>
+              <p class="text-sm text-gray-600">
+                Reduces manual documentation and improves patient-doctor engagement significantly.
+              </p>
+            </div>
+            <div class="card-hover feature-card bg-white p-6 rounded-2xl border border-gray-100">
+              <div class="w-12 h-12 bg-medi-green-100 rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-medi-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-gray-900 mb-2">Physician Verified</h3>
+              <p class="text-sm text-gray-600">
+                All findings are subject to confirmation by a licensed medical practitioner.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-6 mb-16">
+            <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Important Note</h3>
+              <p class="text-gray-600 leading-relaxed">
+                A.I.D.A. as a digital tool is
+                <span class="font-semibold">not meant to replace diagnosis by licensed medical practitioner</span> but
+                solely to assist in improving over-all patient care management.
+              </p>
+            </div>
+            <div class="bg-medi-green-50 p-8 rounded-2xl border border-medi-green-200">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Eligibility</h3>
+              <p class="text-gray-600 leading-relaxed">
+                To avail of A.I.D.A, a user must be a
+                <span class="font-semibold text-medi-green-700">licensed medical practitioner in the Philippines</span>
+                and is <span class="font-semibold text-medi-green-700">accredited by Medisureonline</span>.
+              </p>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Ready to Experience A.I.D.A?</h2>
+            <a
+              href="http://aida.medisureonline.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-3 btn-primary px-8 py-4 text-white font-bold rounded-2xl text-lg shadow-xl shadow-medi-green-500/30 hover:shadow-xl hover:shadow-medi-green-500/40 transition-all"
+            >
+              Visit A.I.D.A Platform
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <p class="text-gray-500 mt-4 text-sm">For licensed medical practitioners and accredited users only</p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="bg-gray-900 text-white py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Services</h4>
+              <ul class="space-y-3">
+                <li><a href="/index.html#service-elab" class="text-gray-400 hover:text-white transition-colors">e-Laboratory</a></li>
+                <li><a href="/index.html#service-ekonsulta" class="text-gray-400 hover:text-white transition-colors">e-Konsulta</a></li>
+                <li><a href="/index.html#ebotika" class="text-gray-400 hover:text-white transition-colors">e-Botika</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Medisure</h4>
+              <ul class="space-y-3">
+                <li><a href="/index.html" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                <li><a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms-and-conditions.html" class="text-gray-400 hover:text-white transition-colors">Terms &amp; Conditions</a></li>
+              </ul>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Get In Touch</h4>
+              <ul class="space-y-3">
+                <li class="flex items-center gap-2 text-gray-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>medisureteam@medisureonline.com</span>
+                </li>
+                <li class="flex items-center gap-2 text-gray-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>+639668769058</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Follow Us</h4>
+              <div class="flex gap-4">
+                <a href="https://www.facebook.com/MediSurePH" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-medi-green-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+                <a href="https://x.com/medisureplus" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-medi-green-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                  </svg>
+                </a>
+                <a href="https://www.instagram.com/medisureplus/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-medi-green-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="pt-8 border-t border-gray-800 text-center">
+            <p class="text-gray-500">© 2023 — MediSure Corporate FSE. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      (() => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function navigateWithTransition(url) {
+          if (!url) {
+            return;
+          }
+
+          if (prefersReducedMotion) {
+            window.location.href = url;
+            return;
+          }
+
+          document.body.classList.add('page-leaving');
+          setTimeout(() => {
+            window.location.href = url;
+          }, 220);
+        }
+
+        document.addEventListener('click', (event) => {
+          const link = event.target.closest('a');
+          if (!link) {
+            return;
+          }
+
+          if (
+            event.defaultPrevented ||
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey
+          ) {
+            return;
+          }
+
+          const href = link.getAttribute('href');
+          if (!href || href === '#' || href.startsWith('#')) {
+            return;
+          }
+
+          if (
+            href.startsWith('mailto:') ||
+            href.startsWith('tel:') ||
+            href.startsWith('javascript:') ||
+            link.target === '_blank' ||
+            link.hasAttribute('download')
+          ) {
+            return;
+          }
+
+          event.preventDefault();
+          navigateWithTransition(link.href);
+        });
+      })();
+    </script>
+  </body>
+</html>

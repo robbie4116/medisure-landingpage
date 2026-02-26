@@ -1,0 +1,406 @@
+﻿<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Medisure Online privacy policy." />
+    <title>Privacy Policy | Medisure Online</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              jakarta: ['"Plus Jakarta Sans"', 'sans-serif']
+            },
+            colors: {
+              'medi-green': {
+                50: '#f5faf1',
+                100: '#e8f3de',
+                200: '#d4e6b5',
+                300: '#b8d88c',
+                400: '#9cca63',
+                500: '#558b2f',
+                600: '#4a7a28',
+                700: '#3d6620',
+                800: '#305319',
+                900: '#234012'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        scrollbar-width: thin;
+        scrollbar-color: #9ca3af #f3f4f6;
+      }
+
+      body {
+        animation: pageEnter 0.32s ease both;
+      }
+
+      @keyframes pageEnter {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      body.page-leaving {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.22s ease, transform 0.22s ease;
+      }
+
+      *::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: #f3f4f6;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background: #9ca3af;
+        border: 2px solid #f3f4f6;
+        border-radius: 999px;
+      }
+
+      *::-webkit-scrollbar-thumb:hover {
+        background: #6b7280;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(135deg, #edf7e8 0%, #f8fcf5 48%, #d2e7c2 100%);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #16a34a;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .legal-shell {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 24px;
+        padding: 28px;
+      }
+
+      .legal-section {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid #e5e7eb;
+      }
+
+      @media (min-width: 768px) {
+        .legal-shell {
+          padding: 36px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body {
+          animation: none;
+        }
+
+        body.page-leaving {
+          transition: none;
+          transform: none;
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body class="h-full font-jakarta text-gray-800">
+    <div class="min-h-full flex flex-col gradient-bg">
+      <nav class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-medi-green-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-[1fr_auto_1fr] items-center h-20 md:h-24">
+            <a class="flex items-center gap-2" href="/index.html">
+              <img src="/assets/images/logo.png" alt="Medisure" class="h-16 md:h-20 w-auto" />
+            </a>
+            <div class="hidden md:flex items-center gap-6 justify-self-center">
+              <a href="/index.html?scroll=services" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Services</a>
+              <a href="/index.html?scroll=media" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Media</a>
+              <a href="/index.html?page=story" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">About</a>
+              <a href="/privacy-policy.html" class="nav-link text-medi-green-700 font-semibold">Privacy Policy</a>
+              <a href="/terms-and-conditions.html" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Terms &amp; Conditions</a>
+            </div>
+            <a
+              href="https://myhealth.medisureonline.com/SignIn"
+              class="justify-self-end px-5 py-2.5 bg-white border-2 border-medi-green-600 text-medi-green-600 font-semibold rounded-xl hover:bg-medi-green-50 transition-all duration-300"
+            >
+              Sign In
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <main class="flex-1 pt-8 md:pt-10 pb-16 md:pb-24 px-4">
+        <div class="max-w-5xl mx-auto">
+          <article class="legal-shell">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900">Privacy Policy</h1>
+
+            <section class="legal-section" id="important-notice">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Important Notice</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                This website uses cookies and other similar technologies to collect information about your device to improve your experience when visiting our site. By continuing to browse the site, you are agreeing to use of these information in accordance with our Data Privacy Statement.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                Medisureonline Inc. uses cookies to provide necessary website functionality, enhance your site experience and for analytical purposes. By using our website you agree to to our Privacy Policy and our Cookies Policy.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                This policy was last updated on November 12, 2021.
+              </p>
+            </section>
+
+            <section class="legal-section" id="data-privacy-policy">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Data Privacy Policy</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                One of the main priorities of Medisureonline Inc., is the privacy of our visitors and users of the Medisure Plus website. We value the confidentiality, integrity, transparency and supports privacy protection of your personal data.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                This Policy document contains types of information that is collected, recorded and how we use it. Medisureonline Inc. is compliance with the Data Privacy Act of 2012, Republic Act No. 10173.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
+              </p>
+            </section>
+
+            <section class="legal-section" id="information-collect">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Information we collect</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                Medisureonline Inc., will receive and store information that you enter on our sites or give to us in any other way such as but not limited to the following:
+              </p>
+              <ul class="mt-4 list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
+                <li>Name</li>
+                <li>Address</li>
+                <li>Age</li>
+                <li>Email address</li>
+                <li>Telephone/Cellphone Number</li>
+                <li>Medical History</li>
+              </ul>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                Some of the information you submit to us may contain sensitive information such as health information, necessary for us to provide our services to you.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                Other information we collect pertains to the use of our sites, interaction with us through email and chat, This information includes computer and connection information, such as statistics on your page views, traffic to and from our sites, referral URL, ad data, your IP address, and device identifiers. This information also may include your transaction history, and your web log information, how you search for our sites, the websites you click on from our sites or emails, whether and when you open our emails, and your browsing activities across other websites.
+              </p>
+            </section>
+
+            <section class="legal-section" id="information-use">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">How we use your information</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">We use the information we collect in various ways, including to:</p>
+              <ul class="mt-4 list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
+                <li>Communicate with you with regards to products and services availed of through our website through emails or your telephone number</li>
+                <li>Provide, operate, and maintain our website</li>
+                <li>Improve, personalize, and expand our website</li>
+                <li>Understand and analyze how you use our website</li>
+                <li>Develop new products, services, features, and functionality</li>
+                <li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</li>
+                <li>Find and prevent fraud</li>
+              </ul>
+              <p class="mt-4 text-gray-700 leading-relaxed">Medisureonline Inc., is committed to maintain and secure the confidentiality of your information. Only authorized employees are authorized to access any or all information in our database system. We may share information we collect about you with third parties who we have engaged to help us provide the services you need. We have a written contract (MOA) in place with said the third parties/business associate requiring protection of the privacy and security of your health information. Only for the purpose of performing a service in our behalf.</p>
+              <p class="mt-4 text-gray-700 leading-relaxed">We will only share your information only if required to conduct our professional operations or as required by law.</p>
+              <p class="mt-4 text-gray-700 leading-relaxed">We will not use or disclose your information for any personal or other without your consent.</p>
+            </section>
+
+            <section class="legal-section" id="security-measures">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Data Quality and Security Measure</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">We use reasonable security measures to protect the confidentiality of personal information under our control and appropriately limit access to it. We use a variety of information security measures to protect your online transactions with us. Our site uses encryption technology, such as Secure Sockets Layer (SSL), to protect your personal information during data transport. SSL protects information you submit via our website, such as ordering information including your name, address and credit card number. That being said, we cannot ensure or warrant the security of any information you transmit to us, and you do so at your own risk. We have taken reasonable steps to ensure the integrity and confidentiality of personally identifiable information that you may provide. You should understand, however, that electronic transmissions via the internet are not necessarily secure from interception, and so we cannot absolutely guarantee the security or confidentiality of such transmissions.</p>
+            </section>
+
+            <section class="legal-section" id="advertising-partners">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Our Advertising Partners</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">Medisureonline Inc.’s Privacy Policy does not apply to other advertisers or websites. . Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
+            </section>
+
+            <section class="legal-section" id="retention">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Data Retention</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">We will retain your information for as long as your account is active or as needed to provide you services, comply with our legal obligations, resolve disputes and enforce our agreements.</p>
+            </section>
+
+            <section class="legal-section" id="rights">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">GDPR Data Protection Rights</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</p>
+              <ul class="mt-2 list-disc list-inside space-y-1">
+                <li>The right to access – You have the right to request copies of your personal data.</li>
+                <li>The right to rectification – You have the right to request that we correct any information that you may think is inaccurate and incomplete.</li>
+                <li>The right to erasure/blocking – You have the right to request that we erase, suspend, withdraw or order of blocking, removal or destruction of your personal data, under certain conditions.</li>
+                <li>The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
+                <li>The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</li>
+                <li>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
+              </ul>
+              <p class="mt-3 text-gray-700 leading-relaxed">If you would like to a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
+            </section>
+
+            <section class="legal-section" id="contact">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">How to reach us:</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">Data Privacy Officer</p>
+              <p class="text-gray-700 leading-relaxed">Email address: dpo@medisureonline.com</p>
+              <p class="text-gray-700 leading-relaxed">Telephone Number: (02) 8563-0689</p>
+              <p class="text-gray-700 leading-relaxed">Address: 928 Luna Mencias, Addition Hills, Mandaluyong City 1550</p>
+            </section>
+
+            <section class="legal-section" id="changes">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Change to this Policy</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">Medisureonline Inc. reserves the right to change, revise and update this Policy accordingly as per relevant laws and regulations applicable. Any relevant updates will be posted on the Medisureonline Inc. website.</p>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <footer class="bg-gray-900 text-white py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Services</h4>
+              <ul class="space-y-3">
+                <li><a href="/index.html#service-elab" class="text-gray-400 hover:text-white transition-colors">e-Laboratory</a></li>
+                <li><a href="/index.html#service-ekonsulta" class="text-gray-400 hover:text-white transition-colors">e-Konsulta</a></li>
+                <li><a href="/index.html#ebotika" class="text-gray-400 hover:text-white transition-colors">e-Botika</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Medisure</h4>
+              <ul class="space-y-3">
+                <li><a href="/index.html" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                <li><a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms-and-conditions.html" class="text-gray-400 hover:text-white transition-colors">Terms &amp; Conditions</a></li>
+              </ul>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Get In Touch</h4>
+              <ul class="space-y-3">
+                <li class="flex items-center gap-2 text-gray-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>medisureteam@medisureonline.com</span>
+                </li>
+                <li class="flex items-center gap-2 text-gray-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>+639668769058</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Follow Us</h4>
+              <div class="flex gap-4">
+                <a href="https://www.facebook.com/MediSurePH" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-medi-green-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+                <a href="https://x.com/medisureplus" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-medi-green-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                  </svg>
+                </a>
+                <a href="https://www.instagram.com/medisureplus/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-medi-green-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="pt-8 border-t border-gray-800 text-center">
+            <p class="text-gray-500">© 2023 — MediSure Corporate FSE. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      (() => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function navigateWithTransition(url) {
+          if (!url) {
+            return;
+          }
+
+          if (prefersReducedMotion) {
+            window.location.href = url;
+            return;
+          }
+
+          document.body.classList.add('page-leaving');
+          setTimeout(() => {
+            window.location.href = url;
+          }, 220);
+        }
+
+        document.addEventListener('click', (event) => {
+          const link = event.target.closest('a');
+          if (!link) {
+            return;
+          }
+
+          if (
+            event.defaultPrevented ||
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey
+          ) {
+            return;
+          }
+
+          const href = link.getAttribute('href');
+          if (!href || href === '#' || href.startsWith('#')) {
+            return;
+          }
+
+          if (
+            href.startsWith('mailto:') ||
+            href.startsWith('tel:') ||
+            href.startsWith('javascript:') ||
+            link.target === '_blank' ||
+            link.hasAttribute('download')
+          ) {
+            return;
+          }
+
+          event.preventDefault();
+          navigateWithTransition(link.href);
+        });
+      })();
+    </script>
+  </body>
+</html>
+
+
+

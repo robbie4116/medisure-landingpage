@@ -1,0 +1,655 @@
+﻿<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Medisure Online terms and conditions." />
+    <title>Terms and Conditions | Medisure Online</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              jakarta: ['"Plus Jakarta Sans"', 'sans-serif']
+            },
+            colors: {
+              'medi-green': {
+                50: '#f5faf1',
+                100: '#e8f3de',
+                200: '#d4e6b5',
+                300: '#b8d88c',
+                400: '#9cca63',
+                500: '#558b2f',
+                600: '#4a7a28',
+                700: '#3d6620',
+                800: '#305319',
+                900: '#234012'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        scrollbar-width: thin;
+        scrollbar-color: #9ca3af #f3f4f6;
+      }
+
+      body {
+        animation: pageEnter 0.32s ease both;
+      }
+
+      @keyframes pageEnter {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      body.page-leaving {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.22s ease, transform 0.22s ease;
+      }
+
+      *::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: #f3f4f6;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background: #9ca3af;
+        border: 2px solid #f3f4f6;
+        border-radius: 999px;
+      }
+
+      *::-webkit-scrollbar-thumb:hover {
+        background: #6b7280;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(135deg, #edf7e8 0%, #f8fcf5 48%, #d2e7c2 100%);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #16a34a;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .legal-shell {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 24px;
+        padding: 28px;
+      }
+
+      .legal-section {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid #e5e7eb;
+        scroll-margin-top: 120px;
+      }
+
+      .legal-toc {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .legal-toc li {
+        margin: 6px 0;
+      }
+
+      .legal-toc-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 2px 8px;
+        border-radius: 8px;
+        color: #4b5563;
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+          color 0.2s ease,
+          background-color 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .legal-toc-link:hover,
+      .legal-toc-link:focus-visible {
+        color: #3d6620;
+        background-color: #e8f3de;
+        transform: translateX(2px);
+        outline: none;
+      }
+
+      @media (min-width: 768px) {
+        .legal-shell {
+          padding: 36px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body {
+          animation: none;
+        }
+
+        body.page-leaving {
+          transition: none;
+          transform: none;
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body class="h-full font-jakarta text-gray-800">
+    <div class="min-h-full flex flex-col gradient-bg">
+      <nav class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-medi-green-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-[1fr_auto_1fr] items-center h-20 md:h-24">
+            <a class="flex items-center gap-2" href="/index.html">
+              <img src="/assets/images/logo.png" alt="Medisure" class="h-16 md:h-20 w-auto" />
+            </a>
+            <div class="hidden md:flex items-center gap-6 justify-self-center">
+              <a href="/index.html?scroll=services" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Services</a>
+              <a href="/index.html?scroll=media" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Media</a>
+              <a href="/index.html?page=story" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">About</a>
+              <a href="/privacy-policy.html" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Privacy Policy</a>
+              <a href="/terms-and-conditions.html" class="nav-link text-medi-green-700 font-semibold">Terms &amp; Conditions</a>
+            </div>
+            <a
+              href="https://myhealth.medisureonline.com/SignIn"
+              class="justify-self-end px-5 py-2.5 bg-white border-2 border-medi-green-600 text-medi-green-600 font-semibold rounded-xl hover:bg-medi-green-50 transition-all duration-300"
+            >
+              Sign In
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <main class="flex-1 pt-8 md:pt-10 pb-16 md:pb-24 px-4">
+        <div class="max-w-5xl mx-auto">
+          <article class="legal-shell">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900">Terms and Conditions</h1>
+
+            <section class="legal-section" id="toc">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">TABLE OF CONTENTS</h2>
+              <ol class="legal-toc mt-2">
+                <li><a class="legal-toc-link" href="#agreement">1. AGREEMENT TO TERMS</a></li>
+                <li><a class="legal-toc-link" href="#ip-rights">2. INTELLECTUAL PROPERTY</a></li>
+                <li><a class="legal-toc-link" href="#user-representations">3. USER REPRESENTATIONS</a></li>
+                <li><a class="legal-toc-link" href="#user-registration">4. USER REGISTRATION</a></li>
+                <li><a class="legal-toc-link" href="#marketplace-offerings">5. MARKETPLACE OFFERINGS</a></li>
+                <li><a class="legal-toc-link" href="#payment">6. PURCHASES AND PAYMENT</a></li>
+                <li><a class="legal-toc-link" href="#returns">7. RETURN/REFUNDS POLICY</a></li>
+                <li><a class="legal-toc-link" href="#prohibited-activities">8. PROHIBITED ACTIVITIES</a></li>
+                <li><a class="legal-toc-link" href="#ugc">9. USER GENERATED CONTRIBUTIONS</a></li>
+                <li><a class="legal-toc-link" href="#contribution-license">10. CONTRIBUTION LICENSE</a></li>
+                <li><a class="legal-toc-link" href="#guidelines-for-reviews">11. GUIDELINES FOR REVIEWS</a></li>
+                <li><a class="legal-toc-link" href="#social-media">12. SOCIAL MEDIA</a></li>
+                <li><a class="legal-toc-link" href="#submissions">13. SUBMISSIONS</a></li>
+                <li><a class="legal-toc-link" href="#site-management">14. SITE MANAGEMENT</a></li>
+                <li><a class="legal-toc-link" href="#privacy-policy">15. PRIVACY POLICY</a></li>
+                <li><a class="legal-toc-link" href="#term-and-termination">16. TERM AND TERMINATION</a></li>
+                <li><a class="legal-toc-link" href="#modifications-and-interruptions">17. MODIFICATIONS AND INTERRUPTIONS</a></li>
+                <li><a class="legal-toc-link" href="#governing-law">18. GOVERNING LAW</a></li>
+                <li><a class="legal-toc-link" href="#dispute-resolution">19. DISPUTE RESOLUTION</a></li>
+                <li><a class="legal-toc-link" href="#corrections">20. CORRECTIONS</a></li>
+                <li><a class="legal-toc-link" href="#disclaimer">21. DISCLAIMER</a></li>
+                <li><a class="legal-toc-link" href="#limitations-of-liability">22. LIMITATIONS OF LIABILITY</a></li>
+                <li><a class="legal-toc-link" href="#indemnification">23. INDEMNIFICATION</a></li>
+                <li><a class="legal-toc-link" href="#user-data">24. USER DATA</a></li>
+                <li><a class="legal-toc-link" href="#electronic-communications">25. ELECTRONIC COMMUNICATIONS,TRANSACTIONS, AND SIGNATURES</a></li>
+                <li><a class="legal-toc-link" href="#miscellaneous">26. MISCELLANEOUS</a></li>
+                <li><a class="legal-toc-link" href="#contact-us">27. CONTACT US</a></li>
+              </ol>
+            </section>
+
+            <section class="legal-section" id="agreement">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">1. AGREEMENT TO TERMS</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and MEDISUREONLINE INC. (“Company”, “we”, “us”, or “our”), concerning your access to and use of the http://www.medisureonline.com website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). We are registered in the Philippines and have our registered office at 16B Williams St Highway Hills, Mandaluyong City, Metro Manila, NCR 1550. The Site provides an online marketplace for the following goods, products, and/or services: personal goods, electronic goods, vitamins, supplements, etc. (the “Marketplace Offerings”). In order to help make the Site a secure environment for the purchase and sale of Marketplace Offerings, all users are required to accept and comply with these Terms of Use. You agree that by accessing the Site and/or the Marketplace Offerings, you have read, understood, and agree to be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND/OR THE MARKETPLACE OFFERINGS AND YOU MUST DISCONTINUE USE IMMEDIATELY.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Use at any time and for any reason. We will alert you about any changes by updating the “Last updated” date of these Terms of Use, and you waive any right to receive specific notice of each such change. Please ensure that you check the applicable Terms every time you use our Site so that you understand which Terms apply. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Use by your continued use of the Site after the date such revised Terms of Use are posted.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                The Site is intended for users who are at least 18 years old. Persons under the age of 18 are not permitted to use or register for the Site or use the Marketplace Offerings.
+              </p>
+            </section>
+
+            <section class="legal-section" id="ip-rights">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">2. INTELLECTUAL PROPERTY RIGHTS</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                Unless otherwise indicated, the Site and the Marketplace Offerings are our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the “Content”) and the trademarks, service marks, and logos contained therein (the “Marks”) are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of the Philippines, international copyright laws, and international conventions. The Content and the Marks are provided on the Site “AS IS” for your information and personal use only. Except as expressly provided in these Terms of Use, no part of the Site or the Marketplace Offerings and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                Provided that you are eligible to use the Site, you are granted a limited license to access and use the Site and to download or print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. We reserve all rights not expressly granted to you in and to the Site, the Content and the Marks.
+              </p>
+            </section>
+
+            <section class="legal-section" id="user-representations">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">3. USER REPRESENTATIONS</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                By using the Site or the Marketplace Offerings, you represent and warrant that: (1) all registration information you submit will be true, accurate, current, and complete; (2) you will maintain the accuracy of such information and promptly update such registration information as necessary; (3) you have the legal capacity and you agree to comply with these Terms of Use; (4) you are not a minor in the jurisdiction in which you reside; (5) you will not access the Site or the Marketplace Offerings through automated or non-human means, whether through a bot, script or otherwise; (6) you will not use the Site for any illegal or unauthorized purpose; and (7) your use of the Site or the Marketplace Offerings will not violate any applicable law or regulation.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the Site (or any portion thereof).
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                You may not use the Site or the Marketplace Offerings for any illegal or unauthorized purpose nor may you, in the use of Marketplace Offerings, violate any laws. Among unauthorized Marketplace Offerings are the following: intoxicants of any sort; illegal drugs or other illegal products; alcoholic beverages; games of chance; and pornography or graphic adult content, images, or other adult products. Postings of any unauthorized products or content may result in immediate termination of your account and a lifetime ban from use of the Site.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                We are a service provider and make no representations as to the safety, effectiveness, adequacy, accuracy, availability, prices, ratings, reviews, or legality of any of the information contained on the Site or the Marketplace Offerings displayed or offered through the Site. You understand and agree that the content of the Site does not contain or constitute representations to be reasonably relied upon, and you agree to hold us harmless from any errors, omissions, or misrepresentations contained within the Site’s content. We do not endorse or recommend any Marketplace Offerings and the Site is provided for informational and advertising purposes only.
+              </p>
+            </section>
+
+            <section class="legal-section" id="user-registration">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">4. USER REGISTRATION</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                You may be required to register with the Site in order to access the Marketplace Offerings. You agree to keep your password confidential and will be responsible for all use of your account and password. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.
+              </p>
+            </section>
+
+            <section class="legal-section" id="marketplace-offerings">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">5. MARKETPLACE OFFERINGS</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                We make every effort to display as accurately as possible the colors, features, specifications, and details of the Marketplace Offerings available on the Site. However, we do not guarantee that the colors, features, specifications, and details of the Marketplace Offerings will be accurate, complete, reliable, current, or free of other errors, and your electronic display may not accurately reflect the actual colors and details of the products. All Marketplace Offerings are subject to availability, and we cannot guarantee that Marketplace Offerings will be in stock. Certain Marketplace Offerings may be available exclusively online through the Site. Such Marketplace Offerings may have limited quantities and are subject to return or exchange only according to our Return Policy.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                We reserve the right to limit the quantities of the Marketplace Offerings offered or available on the Site. All descriptions or pricing of the Marketplace Offerings are subject to change at any time without notice, at our sole discretion. We reserve the right to discontinue any Marketplace Offerings at any time for any reason. We do not warrant that the quality of any of the Marketplace Offerings purchased by you will meet your expectations or that any errors in the Site will be corrected.
+              </p>
+            </section>
+
+            <section class="legal-section" id="payment">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">6. PURCHASES AND PAYMENT</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">We accept the following forms of payment:</p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                You agree to provide current, complete, and accurate purchase and account information for all purchases of the Marketplace Offerings made via the Site. You further agree to promptly update account and payment information, including email address, payment method, and payment card expiration date, so that we can complete your transactions and contact you as needed. Sales tax will be added to the price of purchases as deemed required by us. We may change prices at any time. All payments shall be in Philippine Pesos.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                You agree to pay all charges at the prices then in effect for your purchases and any applicable shipping fees, and you authorize us to charge your chosen payment provider for any such amounts upon placing your order. We reserve the right to correct any errors or mistakes in pricing, even if we have already requested or received payment.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                We reserve the right to refuse any order placed through the Site. We may, in our sole discretion, limit or cancel quantities purchased per person, per household, or per order. These restrictions may include orders placed by or under the same customer account, the same payment method, and/or orders that use the same billing or shipping address. We reserve the right to limit or prohibit orders that, in our sole judgment, appear to be placed by dealers, resellers, or distributors.
+              </p>
+            </section>
+
+            <section class="legal-section" id="returns">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">7. RETURN/REFUNDS POLICY</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                Please review our Return Policy posted on the Site prior to making any purchases.
+              </p>
+            </section>
+
+            <section class="legal-section" id="prohibited-activities">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">8. PROHIBITED ACTIVITIES</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">As a user of the Site, you agree not to:</p>
+              <ul class="mt-4 list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
+                <li>Systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li>
+                <li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li>
+                <li>Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.</li>
+                <li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li>
+                <li>Use any information obtained from the Site in order to harass, abuse, or harm another person.</li>
+                <li>Make improper use of our support services or submit false reports of abuse or misconduct.</li>
+                <li>Use the Site in a manner inconsistent with any applicable laws or regulations.</li>
+                <li>Engage in unauthorized framing of or linking to the Site.</li>
+                <li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Marketplace Offerings.</li>
+                <li>Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li>
+                <li>Delete the copyright or other proprietary rights notice from any Content.</li>
+                <li>Attempt to impersonate another user or person or use the username of another user.</li>
+                <li>Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).</li>
+                <li>Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.</li>
+                <li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Marketplace Offerings to you.</li>
+                <li>Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.</li>
+                <li>Copy or adapt the Site’s software, including but not limited HTML, JavaScript, or other code.</li>
+                <li>Except as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site.</li>
+                <li>Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching any unauthorized script or other software.</li>
+                <li>Use a buying agent or purchasing agent to make purchases on the Site.</li>
+                <li>Make any unauthorized use of the Marketplace Offerings, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li>
+                <li>Use the Marketplace Offerings as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavor or commercial enterprise.</li>
+                <li>Sell or otherwise transfer your profile.</li>
+                <li>Use the Site to advertise or offer to sell goods and services.</li>
+              </ul>
+            </section>
+
+            <section class="legal-section" id="ugc">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">9. USER GENERATED CONTRIBUTIONS</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                The Site does not offer users to submit or post content. We may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Site, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, “Contributions”). Contributions may be viewable by other users of the Site and through third-party websites. As such, any Contributions you transmit may be treated in accordance with the Site Privacy Policy. When you create or make available any Contributions, you thereby represent and warrant that:
+              </p>
+              <ul class="mt-4 list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
+                <li>The creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.</li>
+                <li>You are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Site, and other users of the Site to use your Contributions in any manner contemplated by the Site and these Terms of Use.</li>
+                <li>You have the written consent, release, and/or permission of each and every identifiable individual person in your Contributions to use the name or likeness of each and every such identifiable individual person to enable inclusion and use of your Contributions in any manner contemplated by the Site and these Terms of Use.</li>
+                <li>Your Contributions are not false, inaccurate, or misleading.</li>
+                <li>Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.</li>
+                <li>Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).</li>
+                <li>Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.</li>
+                <li>Your Contributions are not used to harass or threaten (in the legal sense of those terms) any other person and to promote violence against a specific person or class of people.</li>
+                <li>Your Contributions do not violate any applicable law, regulation, or rule.</li>
+                <li>Your Contributions do not violate the privacy or publicity rights of any third party.</li>
+                <li>Your Contributions do not violate any applicable law concerning child pornography, or otherwise intended to protect the health or well-being of minors.</li>
+                <li>Your Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, or physical handicap.</li>
+                <li>Your Contributions do not otherwise violate, or link to material that violates, any provision of these Terms of Use, or any applicable law or regulation.</li>
+              </ul>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                Any use of the Site or the Marketplace Offerings in violation of the foregoing violates these Terms of Use and may result in, among other things, termination or suspension of your rights to use the Site and the Marketplace Offerings.
+              </p>
+            </section>
+
+            <section class="legal-section" id="contribution-license">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">10. CONTRIBUTION LICENSE</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                You and the Site agree that we may access, store, process, and use any information and personal data that you provide following the terms of the Privacy Policy and your choices (including settings).
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                By submitting suggestions or other feedback regarding the Site, you agree that we can use and share such feedback for any purpose without compensation to you.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                We do not assert any ownership over your Contributions. You retain full ownership of all of your Contributions and any intellectual property rights or other proprietary rights associated with your Contributions. We are not liable for any statements or representations in your Contributions provided by you in any area on the Site. You are solely responsible for your Contributions to the Site and you expressly agree to exonerate us from any and all responsibility and to refrain from any legal action against us regarding your Contributions.
+              </p>
+            </section>
+
+            <section class="legal-section" id="guidelines-for-reviews">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">11. GUIDELINES FOR REVIEWS</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                We may provide you areas on the Site to leave reviews or ratings. When posting a review, you must comply with the following criteria: (1) you should have firsthand experience with the person/entity being reviewed; (2) your reviews should not contain offensive profanity, or abusive, racist, offensive, or hate language; (3) your reviews should not contain discriminatory references based on religion, race, gender, national origin, age, marital status, sexual orientation, or disability; (4) your reviews should not contain references to illegal activity; (5) you should not be affiliated with competitors if posting negative reviews; (6) you should not make any conclusions as to the legality of conduct; (7) you may not post any false or misleading statements; and (8) you may not organize a campaign encouraging others to post reviews, whether positive or negative.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                We may accept, reject, or remove reviews in our sole discretion. We have absolutely no obligation to screen reviews or to delete reviews, even if anyone considers reviews objectionable or inaccurate. Reviews are not endorsed by us, and do not necessarily represent our opinions or the views of any of our affiliates or partners. We do not assume liability for any review or for any claims, liabilities, or losses resulting from any review. By posting a review, you hereby grant to us a perpetual, non-exclusive, worldwide, royalty-free, fully-paid, assignable, and sublicensable right and license to reproduce, modify, translate, transmit by any means, display, perform, and/or distribute all content relating to reviews.
+              </p>
+            </section>
+
+            <section class="legal-section" id="social-media">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">12. SOCIAL MEDIA</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                As part of the functionality of the Site, you may link your account with online accounts you have with third-party service providers (each such account, a “Third-Party Account”) by either: (1) providing your Third-Party Account login information through the Site; or (2) allowing us to access your Third-Party Account, as is permitted under the applicable terms and conditions that govern your use of each Third-Party Account. You represent and warrant that you are entitled to disclose your Third-Party Account login information to us and/or grant us access to your Third-Party Account, without breach by you of any of the terms and conditions that govern your use of the applicable Third-Party Account, and without obligating us to pay any fees or making us subject to any usage limitations imposed by the third-party service provider of the Third-Party Account. By granting us access to any Third-Party Accounts, you understand that (1) we may access, make available, and store (if applicable) any content that you have provided to and stored in your Third-Party Account (the “Social Network Content”) so that it is available on and through the Site via your account, including without limitation any friend lists and (2) we may submit to and receive from your Third-Party Account additional information to the extent you are notified when you link your account with the Third-Party Account. Depending on the Third-Party Accounts you choose and subject to the privacy settings that you have set in such Third-Party Accounts, personally identifiable information that you post to your Third-Party Accounts may be available on and through your account on the Site. Please note that if a Third-Party Account or associated service becomes unavailable or our access to such Third-Party Account is terminated by the third-party service provider, then Social Network Content may no longer be available on and through the Site. You will have the ability to disable the connection between your account on the Site and your Third-Party Accounts at any time. PLEASE NOTE THAT YOUR RELATIONSHIP WITH THE THIRD-PARTY SERVICE PROVIDERS ASSOCIATED WITH YOUR THIRD-PARTY ACCOUNTS IS GOVERNED SOLELY BY YOUR AGREEMENT(S) WITH SUCH THIRD-PARTY SERVICE PROVIDERS. We make no effort to review any Social Network Content for any purpose, including but not limited to, for accuracy, legality, or non-infringement, and we are not responsible for any Social Network Content. You acknowledge and agree that we may access your email address book associated with a Third-Party Account and your contacts list stored on your mobile device or tablet computer solely for purposes of identifying and informing you of those contacts who have also registered to use the Site. You can deactivate the connection between the Site and your Third-Party Account by contacting us using the contact information below or through your account settings (if applicable). We will attempt to delete any information stored on our servers that was obtained through such Third-Party Account, except the username and profile picture that become associated with your account.
+              </p>
+            </section>
+
+            <section class="legal-section" id="submissions">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">13. SUBMISSIONS</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                You acknowledge and agree that any questions, comments, suggestions, ideas, feedback, or other information regarding the Site or the Marketplace Offerings (“Submissions”) provided by you to us are non-confidential and shall become our sole property. We shall own exclusive rights, including all intellectual property rights, and shall be entitled to the unrestricted use and dissemination of these Submissions for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you. You hereby waive all moral rights to any such Submissions, and you hereby warrant that any such Submissions are original with you or that you have the right to submit such Submissions. You agree there shall be no recourse against us for any alleged or actual infringement or misappropriation of any proprietary right in your Submissions.
+              </p>
+            </section>
+
+            <section class="legal-section" id="site-management">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">14. SITE MANAGEMENT</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                We reserve the right, but not the obligation, to: (1) monitor the Site for violations of these Terms of Use; (2) take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms of Use, including without limitation, reporting such user to law enforcement authorities; (3) in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof; (4) in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems; and (5) otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site and the Marketplace Offerings.
+              </p>
+            </section>
+
+            <section class="legal-section" id="privacy-policy">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">15. PRIVACY POLICY</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                We care about data privacy and security. Please review our Privacy Policy: https://medisureonline.com/privacypolicy. By using the Site or the Marketplace Offerings, you agree to be bound by our Privacy Policy, which is incorporated into these Terms of Use. Please be advised the Site and the Marketplace Offerings are hosted in the Philippines. If you access the Site or the Marketplace Offerings from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the Philippines, then through your continued use of the Site, you are transferring your data to the Philippines, and you agree to have your data transferred to and processed in the Philippines.
+              </p>
+            </section>
+
+            <section class="legal-section" id="term-and-termination">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">16. TERM AND TERMINATION</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                These Terms of Use shall remain in full force and effect while you use the Site. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS OF USE, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SITE AND THE MARKETPLACE OFFERINGS (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE TERMS OF USE OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SITE AND THE MARKETPLACE OFFERINGS OR DELETE YOUR ACCOUNT AND ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING, IN OUR SOLE DISCRETION.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                If we terminate or suspend your account for any reason, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.
+              </p>
+            </section>
+
+            <section class="legal-section" id="modifications-and-interruptions">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">17. MODIFICATIONS AND INTERRUPTIONS</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                We reserve the right to change, modify, or remove the contents of the Site at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our Site. We also reserve the right to modify or discontinue all or part of the Marketplace Offerings without notice at any time. We will not be liable to you or any third party for any modification, price change, suspension, or discontinuance of the Site or the Marketplace Offerings.
+              </p>
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                We cannot guarantee the Site and the Marketplace Offerings will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the Site, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Site or the Marketplace Offerings at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Site or the Marketplace Offerings during any downtime or discontinuance of the Site or the Marketplace Offerings. Nothing in these Terms of Use will be construed to obligate us to maintain and support the Site or the Marketplace Offerings or to supply any corrections, updates, or releases in connection therewith.
+              </p>
+            </section>
+
+            <section class="legal-section" id="governing-law">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">18. GOVERNING LAW</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                These terms shall be governed by and defined following the laws of the Philippines. MEDISUREONLINE INC. and yourself irrevocably consent that the courts of the Philippines shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.
+              </p>
+            </section>
+
+            <section class="legal-section" id="dispute-resolution">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">19. DISPUTE RESOLUTION</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                You agree to irrevocably submit all disputes related to Terms or the relationship established by this Agreement to the jurisdiction of the Philippines courts. MEDISUREONLINE INC. shall also maintain the right to bring proceedings as to the substance of the matter in the courts of the country where you reside or, if these Terms are entered into in the course of your trade or profession, the state of your principal place of business.
+              </p>
+            </section>
+
+            <section class="legal-section" id="corrections">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">20. CORRECTIONS</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                There may be information on the Site that contains typographical errors, inaccuracies, or omissions that may relate to the Marketplace Offerings, including descriptions, pricing, availability, and various other information. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Site at any time, without prior notice.
+              </p>
+            </section>
+
+            <section class="legal-section" id="disclaimer">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">21. DISCLAIMER</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                THE SITE AND THE MARKETPLACE OFFERINGS ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND THE MARKETPLACE OFFERINGS AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITE’S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SITE AND WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE, (3) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE OR THE MARKETPLACE OFFERINGS, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SITE, ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.
+              </p>
+            </section>
+
+            <section class="legal-section" id="limitations-of-liability">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">22. LIMITATIONS OF LIABILITY</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE OR THE MARKETPLACE OFFERINGS, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED HEREIN, OUR LIABILITY TO YOU FOR ANY CAUSE WHATSOEVER AND REGARDLESS OF THE FORM OF THE ACTION, WILL AT ALL TIMES BE LIMITED TO THE AMOUNT PAID, IF ANY, BY YOU TO US DURING THE ONE (1) MONTH PERIOD PRIOR TO ANY CAUSE OF ACTION ARISING. CERTAIN US STATE LAWS AND INTERNATIONAL LAWS DO NOT ALLOW LIMITATIONS ON IMPLIED WARRANTIES OR THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. IF THESE LAWS APPLY TO YOU, SOME OR ALL OF THE ABOVE DISCLAIMERS OR LIMITATIONS MAY NOT APPLY TO YOU, AND YOU MAY HAVE ADDITIONAL RIGHTS.
+              </p>
+            </section>
+
+            <section class="legal-section" id="indemnification">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">23. INDEMNIFICATION</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys’ fees and expenses, made by any third party due to or arising out of: (1) use of the Marketplace Offerings; (2) breach of these Terms of Use; (3) any breach of your representations and warranties set forth in these Terms of Use; (4) your violation of the rights of a third party, including but not limited to intellectual property rights; or (5) any overt harmful act toward any other user of the Site or the Marketplace Offerings with whom you connected via the Site. Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of any such claim, action, or proceeding which is subject to this indemnification upon becoming aware of it.
+              </p>
+            </section>
+
+            <section class="legal-section" id="user-data">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">24. USER DATA</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                We will maintain certain data that you transmit to the Site for the purpose of managing the performance of the Marketplace Offerings, as well as data relating to your use of the Marketplace Offerings. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Marketplace Offerings. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.
+              </p>
+            </section>
+
+            <section class="legal-section" id="electronic-communications">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">25. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                Visiting the Site, sending us emails, and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically, via email and on the Site, satisfy any legal requirement that such communication be in writing. YOU HEREBY AGREE TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, ORDERS, AND OTHER RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES, POLICIES, AND RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE SITE. You hereby waive any rights or requirements under any statutes, regulations, rules, ordinances, or other laws in any jurisdiction which require an original signature or delivery or retention of non-electronic records, or to payments or the granting of credits by any means other than electronic means.
+              </p>
+            </section>
+
+            <section class="legal-section" id="miscellaneous">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">26. MISCELLANEOUS</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                These Terms of Use and any policies or operating rules posted by us on the Site or in respect to the Marketplace Offerings constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Terms of Use shall not operate as a waiver of such right or provision. These Terms of Use operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Terms of Use is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Terms of Use and does not affect the validity and enforceability of any remaining provisions. There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Terms of Use or use of the Marketplace Offerings. You agree that these Terms of Use will not be construed against us by virtue of having drafted them. You hereby waive any and all defenses you may have based on the electronic form of these Terms of Use and the lack of signing by the parties hereto to execute these Terms of Use.
+              </p>
+            </section>
+
+            <section class="legal-section" id="contact-us">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">27. CONTACT US</h2>
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                In order to resolve a complaint regarding the Site or the Marketplace Offerings or to receive further information regarding use of the Site or the Marketplace Offerings, please contact us at:MEDISUREONLINE INC.
+              </p>
+              <p class="mt-2 text-gray-700 leading-relaxed">16B Williams St Highway Hills</p>
+              <p class="text-gray-700 leading-relaxed">Mandaluyong City, Metro Manila, NCR 1550</p>
+              <p class="text-gray-700 leading-relaxed">Philippines</p>
+              <p class="text-gray-700 leading-relaxed">Phone: (63 2) 8563 0689</p>
+              <p class="text-gray-700 leading-relaxed">mso.admin@medisureonline.com</p>
+              <p class="mt-4 text-gray-700 leading-relaxed">These terms of use were created using Termly’s Terms and Conditions Generator.</p>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <footer class="bg-gray-900 text-white py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Services</h4>
+              <ul class="space-y-3">
+                <li><a href="/index.html#service-elab" class="text-gray-400 hover:text-white transition-colors">e-Laboratory</a></li>
+                <li><a href="/index.html#service-ekonsulta" class="text-gray-400 hover:text-white transition-colors">e-Konsulta</a></li>
+                <li><a href="/index.html#ebotika" class="text-gray-400 hover:text-white transition-colors">e-Botika</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Medisure</h4>
+              <ul class="space-y-3">
+                <li><a href="/index.html" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                <li><a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms-and-conditions.html" class="text-gray-400 hover:text-white transition-colors">Terms &amp; Conditions</a></li>
+              </ul>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Get In Touch</h4>
+              <ul class="space-y-3">
+                <li class="flex items-center gap-2 text-gray-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>medisureteam@medisureonline.com</span>
+                </li>
+                <li class="flex items-center gap-2 text-gray-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>+639668769058</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6 text-medi-green-400">Follow Us</h4>
+              <div class="flex gap-4">
+                <a href="https://www.facebook.com/MediSurePH" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-medi-green-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+                <a href="https://x.com/medisureplus" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-medi-green-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                  </svg>
+                </a>
+                <a href="https://www.instagram.com/medisureplus/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-medi-green-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="pt-8 border-t border-gray-800 text-center">
+            <p class="text-gray-500">© 2023 — MediSure Corporate FSE. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      (() => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function navigateWithTransition(url) {
+          if (!url) {
+            return;
+          }
+
+          if (prefersReducedMotion) {
+            window.location.href = url;
+            return;
+          }
+
+          document.body.classList.add('page-leaving');
+          setTimeout(() => {
+            window.location.href = url;
+          }, 220);
+        }
+
+        document.addEventListener('click', (event) => {
+          const link = event.target.closest('a');
+          if (!link) {
+            return;
+          }
+
+          if (
+            event.defaultPrevented ||
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey
+          ) {
+            return;
+          }
+
+          const href = link.getAttribute('href');
+          if (!href || href === '#' || href.startsWith('#')) {
+            return;
+          }
+
+          if (
+            href.startsWith('mailto:') ||
+            href.startsWith('tel:') ||
+            href.startsWith('javascript:') ||
+            link.target === '_blank' ||
+            link.hasAttribute('download')
+          ) {
+            return;
+          }
+
+          event.preventDefault();
+          navigateWithTransition(link.href);
+        });
+      })();
+    </script>
+    <script type="module" src="/src/ts/terms-and-conditions.ts"></script>
+  </body>
+</html>
+
+
