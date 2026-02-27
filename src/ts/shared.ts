@@ -1,21 +1,10 @@
-export function initPage(activePage: string): void {
-  const links = document.querySelectorAll<HTMLElement>("[data-page]");
-  links.forEach((link) => {
-    if (link.dataset.page === activePage) {
-      link.classList.add("active");
-    }
-  });
+const LANDING_SCROLL_STORAGE_KEY = "landingScrollTarget";
+const LANDING_HASH_PATTERN = /^\/(?:index\.html)?#([a-zA-Z0-9_-]+)$/;
 
-  const year = document.querySelector<HTMLElement>("[data-year]");
-  if (year) {
-    year.textContent = `${new Date().getFullYear()}`;
-  }
-}
-
-export function setupPageTransitionNavigation(delayMs = 220): void {
+export function createPageTransitionNavigator(delayMs = 220): (url: string) => void {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const navigateWithTransition = (url: string): void => {
+  return (url: string): void => {
     if (!url) {
       return;
     }
@@ -30,6 +19,19 @@ export function setupPageTransitionNavigation(delayMs = 220): void {
       window.location.href = url;
     }, delayMs);
   };
+}
+
+function setPendingLandingScrollTarget(target: string): boolean {
+  try {
+    window.sessionStorage.setItem(LANDING_SCROLL_STORAGE_KEY, target);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export function setupPageTransitionNavigation(delayMs = 220): void {
+  const navigateWithTransition = createPageTransitionNavigator(delayMs);
 
   document.addEventListener("click", (event) => {
     if (!(event.target instanceof Element) || !(event instanceof MouseEvent)) {
@@ -54,6 +56,16 @@ export function setupPageTransitionNavigation(delayMs = 220): void {
 
     const href = link.getAttribute("href");
     if (!href || href === "#" || href.startsWith("#")) {
+      return;
+    }
+
+    const landingHashMatch = href.match(LANDING_HASH_PATTERN);
+    if (landingHashMatch) {
+      event.preventDefault();
+      const target = landingHashMatch[1];
+      const didStoreTarget = setPendingLandingScrollTarget(target);
+      // Fallback preserves section target if sessionStorage is blocked.
+      navigateWithTransition(didStoreTarget ? "/" : `/#${target}`);
       return;
     }
 

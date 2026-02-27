@@ -26,7 +26,7 @@ function createTableRow(item: ServiceRow, paddingClass: "py-3" | "py-4"): HTMLTa
 
   const priceCell = document.createElement("td");
   priceCell.className = PRICE_CELL_CLASS.replace("%PADDING%", paddingClass);
-  priceCell.innerHTML = `&#8369;${item.price}`;
+  priceCell.textContent = `${String.fromCharCode(8369)}${item.price}`;
 
   row.append(serviceCell, priceCell);
   return row;
@@ -71,8 +71,11 @@ function setupPricelistFilters(): void {
   }));
 
   const emptyRow = document.createElement("tr");
-  emptyRow.innerHTML =
-    '<td colspan="2" class="px-6 py-8 text-center text-gray-500">No matching services found.</td>';
+  const emptyCell = document.createElement("td");
+  emptyCell.colSpan = 2;
+  emptyCell.className = "px-6 py-8 text-center text-gray-500";
+  emptyCell.textContent = "No matching services found.";
+  emptyRow.appendChild(emptyCell);
 
   const applyFilters = (): void => {
     const query = searchInput.value.trim().toLowerCase();
