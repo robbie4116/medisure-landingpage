@@ -10,7 +10,8 @@
     "noEmit": true,
     "strict": true,
     "isolatedModules": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["node"]
   },
   "include": ["src/**/*.ts", "vite.config.ts"]
 }

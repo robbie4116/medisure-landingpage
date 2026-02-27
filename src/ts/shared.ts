@@ -5,6 +5,7 @@ const DEFAULT_REVEAL_SELECTOR = "[data-reveal]";
 const REVEAL_TRANSITION_MS = 620;
 const SITE_CONTACT_EMAIL = "medisureteam@medisureonline.com";
 const SITE_CONTACT_PHONE = "+639668769058";
+const SITE_CONTACT_PHONE_PRETTY = "+63 966 876 9058";
 
 type InPageSmoothScrollOptions = {
   anchorSelector?: string;
@@ -21,6 +22,10 @@ export function applySiteContactInfo(): void {
 
   document.querySelectorAll<HTMLElement>("[data-site-phone]").forEach((element) => {
     element.textContent = SITE_CONTACT_PHONE;
+  });
+
+  document.querySelectorAll<HTMLElement>("[data-site-phone-pretty]").forEach((element) => {
+    element.textContent = SITE_CONTACT_PHONE_PRETTY;
   });
 
   document.querySelectorAll<HTMLAnchorElement>("[data-site-email-link]").forEach((link) => {

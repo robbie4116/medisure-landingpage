@@ -1,4 +1,14 @@
-tailwind.config = {
+﻿module.exports = {
+  content: [
+    "./index.html",
+    "./about.html",
+    "./e-konsulta.html",
+    "./e-laboratory.html",
+    "./emr-service-provider.html",
+    "./privacy-policy.html",
+    "./terms-and-conditions.html",
+    "./src/**/*.{ts,js}",
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -20,4 +30,5 @@ tailwind.config = {
       },
     },
   },
+  plugins: [],
 };
