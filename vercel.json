@@ -15,6 +15,10 @@
       "destination": "/e-konsulta.html"
     },
     {
+      "source": "/emr-service-provider",
+      "destination": "/emr-service-provider.html"
+    },
+    {
       "source": "/privacy-policy",
       "destination": "/privacy-policy.html"
     },

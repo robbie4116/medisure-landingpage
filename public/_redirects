@@ -2,11 +2,13 @@
 /about /about.html 200
 /e-laboratory /e-laboratory.html 200
 /e-konsulta /e-konsulta.html 200
+/emr-service-provider /emr-service-provider.html 200
 /privacy-policy /privacy-policy.html 200
 /terms-and-conditions /terms-and-conditions.html 200
 
 /e-laboratory.html /e-laboratory 301
 /e-konsulta.html /e-konsulta 301
+/emr-service-provider.html /emr-service-provider 301
 /privacy-policy.html /privacy-policy 301
 /terms-and-conditions.html /terms-and-conditions 301
 /about.html /about 301

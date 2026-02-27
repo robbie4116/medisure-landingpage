@@ -2,6 +2,15 @@ const LANDING_SCROLL_STORAGE_KEY = "landingScrollTarget";
 const LANDING_HASH_PATTERN = /^\/(?:index\.html)?#([a-zA-Z0-9_-]+)$/;
 const SCROLL_REVEAL_STYLE_ID = "medisure-scroll-reveal-style";
 const DEFAULT_REVEAL_SELECTOR = "[data-reveal]";
+const REVEAL_TRANSITION_MS = 620;
+
+type InPageSmoothScrollOptions = {
+  anchorSelector?: string;
+  stickyHeaderSelector?: string;
+  topOffsetPx?: number;
+  settleDelayMs?: number;
+  settleMinDeltaPx?: number;
+};
 
 export function createPageTransitionNavigator(delayMs = 220): (url: string) => void {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -86,6 +95,118 @@ export function setupPageTransitionNavigation(delayMs = 220): void {
   });
 }
 
+function getElementFromHash(hash: string): HTMLElement | null {
+  if (!hash || hash === "#") {
+    return null;
+  }
+
+  const decodedId = decodeURIComponent(hash.slice(1));
+  if (!decodedId) {
+    return null;
+  }
+
+  const byId = document.getElementById(decodedId);
+  if (byId) {
+    return byId;
+  }
+
+  try {
+    return document.querySelector<HTMLElement>(hash);
+  } catch {
+    return null;
+  }
+}
+
+function getStickyHeaderOffset(stickyHeaderSelector: string, topOffsetPx: number): number {
+  const header = document.querySelector<HTMLElement>(stickyHeaderSelector);
+  const headerHeight = header ? header.getBoundingClientRect().height : 0;
+  return headerHeight + topOffsetPx;
+}
+
+function scrollToHashTarget(hash: string, behavior: ScrollBehavior, stickyHeaderSelector: string, topOffsetPx: number): boolean {
+  const target = getElementFromHash(hash);
+  if (!target) {
+    return false;
+  }
+
+  const offset = getStickyHeaderOffset(stickyHeaderSelector, topOffsetPx);
+  const targetTop = window.scrollY + target.getBoundingClientRect().top - offset;
+
+  window.scrollTo({
+    top: Math.max(0, targetTop),
+    behavior,
+  });
+
+  return true;
+}
+
+export function setupInPageSmoothScroll(options: InPageSmoothScrollOptions = {}): void {
+  const {
+    anchorSelector = 'a[href^="#"]',
+    stickyHeaderSelector = "nav.sticky",
+    topOffsetPx = 12,
+    settleDelayMs = 0,
+    settleMinDeltaPx = 14,
+  } = options;
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const initialBehavior: ScrollBehavior = prefersReducedMotion ? "auto" : "smooth";
+
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element) || !(event instanceof MouseEvent)) {
+      return;
+    }
+
+    const link = event.target.closest(anchorSelector);
+    if (!(link instanceof HTMLAnchorElement)) {
+      return;
+    }
+
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    const href = link.getAttribute("href");
+    if (!href || href === "#") {
+      return;
+    }
+
+    event.preventDefault();
+    const didScroll = scrollToHashTarget(href, initialBehavior, stickyHeaderSelector, topOffsetPx);
+    if (!didScroll) {
+      return;
+    }
+
+    if (settleDelayMs > 0) {
+      // Optional second pass only when explicitly enabled and final position is materially off.
+      window.setTimeout(() => {
+        const target = getElementFromHash(href);
+        if (!target) {
+          return;
+        }
+
+        const offset = getStickyHeaderOffset(stickyHeaderSelector, topOffsetPx);
+        const targetTop = Math.max(0, window.scrollY + target.getBoundingClientRect().top - offset);
+        const delta = Math.abs(window.scrollY - targetTop);
+
+        if (delta >= Math.max(1, settleMinDeltaPx)) {
+          window.scrollTo({
+            top: targetTop,
+            behavior: prefersReducedMotion ? "auto" : "smooth",
+          });
+        }
+      }, settleDelayMs);
+    }
+  });
+}
+
 function ensureScrollRevealStyles(): void {
   if (document.getElementById(SCROLL_REVEAL_STYLE_ID)) {
     return;
@@ -106,7 +227,7 @@ function ensureScrollRevealStyles(): void {
       will-change: opacity, transform, filter;
     }
 
-    .reveal-on-scroll.reveal-visible {
+    .reveal-visible {
       opacity: 1;
       transform: none;
       filter: none;
@@ -175,6 +296,12 @@ export function setupScrollReveal(
 
         const element = entry.target as HTMLElement;
         element.classList.add("reveal-visible");
+        const revealDelay = Number.parseInt(element.style.getPropertyValue("--reveal-delay") || "0", 10);
+        const cleanupDelay = (Number.isFinite(revealDelay) ? Math.max(0, revealDelay) : 0) + REVEAL_TRANSITION_MS + 40;
+        window.setTimeout(() => {
+          element.classList.remove("reveal-on-scroll");
+          element.style.removeProperty("--reveal-delay");
+        }, cleanupDelay);
         observer.unobserve(element);
       });
     },

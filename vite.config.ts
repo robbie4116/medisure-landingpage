@@ -9,10 +9,10 @@ export default defineConfig({
         about: resolve(__dirname, "about.html"),
         eLaboratory: resolve(__dirname, "e-laboratory.html"),
         eKonsulta: resolve(__dirname, "e-konsulta.html"),
+        emrServiceProvider: resolve(__dirname, "emr-service-provider.html"),
         privacyPolicy: resolve(__dirname, "privacy-policy.html"),
         termsAndConditions: resolve(__dirname, "terms-and-conditions.html"),
       },
     },
   },
 });
-
