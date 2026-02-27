@@ -359,7 +359,7 @@
         <nav class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-medi-green-100">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-wrap items-center h-auto md:h-24 py-3 md:py-0">
-              <div class="order-1 flex items-center gap-2 cursor-pointer" onclick="scrollToTopFromLogo()">
+              <div id="logo-home-link" class="order-1 flex items-center gap-2 cursor-pointer">
                 <img src="/assets/images/logo.png" alt="Medisure" class="h-16 md:h-20 w-auto" />
               </div>
               <div class="order-3 basis-full mt-3 md:mt-0 md:order-2 md:basis-auto md:flex-1 flex items-center gap-4 md:gap-6 overflow-x-auto md:overflow-visible whitespace-nowrap md:justify-center">
@@ -369,7 +369,7 @@
                 <a href="/privacy-policy" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Privacy Policy</a>
                 <a href="/terms-and-conditions" class="nav-link text-gray-700 font-medium hover:text-medi-green-600">Terms &amp; Conditions</a>
               </div>
-              <button onclick="redirectToSignIn()" class="order-2 ml-auto md:order-3 md:ml-0 px-5 py-2.5 bg-white border-2 border-medi-green-600 text-medi-green-600 font-semibold rounded-xl hover:bg-medi-green-50 transition-all duration-300">Sign In</button>
+              <button id="sign-in-button" class="order-2 ml-auto md:order-3 md:ml-0 px-5 py-2.5 bg-white border-2 border-medi-green-600 text-medi-green-600 font-semibold rounded-xl hover:bg-medi-green-50 transition-all duration-300">Sign In</button>
             </div>
           </div>
         </nav>
@@ -387,7 +387,7 @@
               Libreng konsultasyon at diskwento sa gamot para sa bawat Pilipino.
             </p>
             <div class="hero-item hero-cta-wrap">
-              <button onclick="redirectToAuth()" class="hero-cta-btn px-8 py-4 text-white font-bold rounded-2xl text-lg">
+              <button id="hero-start-button" class="hero-cta-btn px-8 py-4 text-white font-bold rounded-2xl text-lg">
                 <span>Mag Register Na</span>
                 <svg class="hero-cta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 12h14m-6-6l6 6-6 6" />
@@ -637,184 +637,6 @@
         </footer>
       </div>
     </div>
-    <script>
-      const authRedirectUrl = 'https://myhealth.medisureonline.com/';
-      const signInRedirectUrl = 'https://myhealth.medisureonline.com/SignIn';
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (window.location.pathname === '/index.html') {
-        const canonical = '/' + window.location.search + window.location.hash;
-        history.replaceState(null, '', canonical);
-      }
-      const pendingLandingScroll = (() => {
-        try {
-          const stored = window.sessionStorage.getItem('landingScrollTarget');
-          if (stored) {
-            window.sessionStorage.removeItem('landingScrollTarget');
-          }
-          return stored;
-        } catch {
-          return null;
-        }
-      })();
-
-      function navigateWithTransition(url) {
-        if (!url) {
-          return;
-        }
-
-        if (prefersReducedMotion) {
-          window.location.href = url;
-          return;
-        }
-
-        document.body.classList.add('page-leaving');
-        setTimeout(() => {
-          window.location.href = url;
-        }, 220);
-      }
-
-      function redirectToAuth() {
-        navigateWithTransition(authRedirectUrl);
-      }
-
-      function redirectToSignIn() {
-        navigateWithTransition(signInRedirectUrl);
-      }
-
-      function scrollToTopFromLogo() {
-        const appContainer = document.getElementById('app-container');
-        if (!appContainer) {
-          return;
-        }
-
-        appContainer.scrollTo({
-          top: 0,
-          behavior: prefersReducedMotion ? 'auto' : 'smooth'
-        });
-      }
-
-      function scrollToAppSection(hash, behavior = 'smooth') {
-        if (!hash || hash === '#') {
-          return;
-        }
-
-        const target = document.querySelector(hash);
-        if (!target) {
-          return;
-        }
-
-        const appContainer = document.getElementById('app-container');
-        if (!appContainer) {
-          return;
-        }
-
-        const containerRect = appContainer.getBoundingClientRect();
-        const targetRect = target.getBoundingClientRect();
-        const targetPosition = appContainer.scrollTop + (targetRect.top - containerRect.top) - 80;
-        appContainer.scrollTo({
-          top: Math.max(0, targetPosition),
-          behavior
-        });
-      }
-
-      function scrollToAppSectionWithSettle(hash) {
-        scrollToAppSection(hash, 'smooth');
-      }
-
-      document.querySelectorAll('a[href^="#"], a[href^="/#"], a[href^="/index.html#"]').forEach((anchor) => {
-        anchor.addEventListener('click', function (e) {
-          const rawHref = this.getAttribute('href');
-          if (!rawHref) {
-            return;
-          }
-
-          const href = rawHref.startsWith('/index.html#')
-            ? rawHref.substring('/index.html'.length)
-            : rawHref.startsWith('/#')
-              ? rawHref.substring('/'.length)
-              : rawHref;
-
-          if (href !== '#') {
-            e.preventDefault();
-            scrollToAppSectionWithSettle(href);
-          }
-        });
-      });
-
-      document.addEventListener('click', (event) => {
-        if (!(event instanceof MouseEvent) || !(event.target instanceof Element)) {
-          return;
-        }
-
-        const link = event.target.closest('a');
-        if (!link) {
-          return;
-        }
-
-        if (
-          event.defaultPrevented ||
-          event.button !== 0 ||
-          event.metaKey ||
-          event.ctrlKey ||
-          event.shiftKey ||
-          event.altKey
-        ) {
-          return;
-        }
-
-        const href = link.getAttribute('href');
-        if (!href || href === '#' || href.startsWith('#') || href.startsWith('/#') || href.startsWith('/index.html#')) {
-          return;
-        }
-
-        if (
-          href.startsWith('mailto:') ||
-          href.startsWith('tel:') ||
-          href.startsWith('javascript:') ||
-          link.target === '_blank' ||
-          link.hasAttribute('download')
-        ) {
-          return;
-        }
-
-        if (
-          (href.startsWith('/?scroll=') || href.startsWith('/index.html?scroll=')) &&
-          (window.location.pathname === '/index.html' || window.location.pathname === '/')
-        ) {
-          event.preventDefault();
-          const scrollTarget = new URL(link.href).searchParams.get('scroll');
-          if (scrollTarget) {
-            requestAnimationFrame(() => scrollToAppSectionWithSettle(`#${scrollTarget}`));
-            history.replaceState(null, '', '/');
-          }
-          return;
-        }
-
-        event.preventDefault();
-        navigateWithTransition(link.href);
-      });
-      const params = new URLSearchParams(window.location.search);
-      const initialScroll = params.get('scroll');
-      if (pendingLandingScroll) {
-        requestAnimationFrame(() => scrollToAppSectionWithSettle(`#${pendingLandingScroll}`));
-        history.replaceState(null, '', '/');
-      } else if (initialScroll) {
-        requestAnimationFrame(() => scrollToAppSectionWithSettle(`#${initialScroll}`));
-        history.replaceState(null, '', '/');
-      } else if (window.location.hash) {
-        const initialHash = window.location.hash;
-        requestAnimationFrame(() => scrollToAppSectionWithSettle(initialHash));
-        history.replaceState(null, '', '/');
-      }
-
-      window.addEventListener('hashchange', () => {
-        const nextHash = window.location.hash;
-        if (!nextHash) {
-          return;
-        }
-        requestAnimationFrame(() => scrollToAppSectionWithSettle(nextHash));
-        history.replaceState(null, '', '/');
-      });
-    </script>
+    <script type="module" src="/src/ts/index.ts"></script>
   </body>
 </html>
