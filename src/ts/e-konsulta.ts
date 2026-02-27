@@ -1,3 +1,4 @@
-import { setupPageTransitionNavigation } from "./shared";
+import { setupPageTransitionNavigation, setupScrollReveal } from "./shared";
 
 setupPageTransitionNavigation();
+setupScrollReveal();

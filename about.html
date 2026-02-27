@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="About Medisure and our mission for accessible healthcare." />
     <title>About | Medisure</title>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -130,6 +133,12 @@
         animation: fadeIn 0.6s ease-out forwards;
       }
 
+      html.js [data-reveal-late]:not(.reveal-visible) {
+        opacity: 0;
+        transform: translate3d(0, 24px, 0) scale(0.995);
+        filter: blur(2px);
+      }
+
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -159,6 +168,12 @@
 
         .fade-in {
           animation: none;
+        }
+
+        html.js [data-reveal-late]:not(.reveal-visible) {
+          opacity: 1;
+          transform: none;
+          filter: none;
         }
       }
     </style>
@@ -198,7 +213,7 @@
 
         <section class="py-16 md:py-24 px-4 bg-white">
           <div class="max-w-3xl mx-auto">
-            <div class="mb-12 flex items-start gap-6">
+            <div data-reveal class="mb-12 flex items-start gap-6">
               <div class="flex flex-col items-center">
                 <div class="w-4 h-4 bg-medi-green-600 rounded-full"></div>
                 <div class="w-1 h-24 bg-gradient-to-b from-medi-green-400 to-transparent mt-4"></div>
@@ -211,7 +226,7 @@
               </div>
             </div>
 
-            <div class="mb-12 flex items-start gap-6">
+            <div data-reveal data-reveal-late class="mb-12 flex items-start gap-6">
               <div class="flex flex-col items-center">
                 <div class="w-4 h-4 bg-medi-green-600 rounded-full"></div>
                 <div class="w-1 h-24 bg-gradient-to-b from-medi-green-400 to-transparent mt-4"></div>
@@ -223,7 +238,7 @@
               </div>
             </div>
 
-            <div class="mb-12 flex items-start gap-6">
+            <div data-reveal class="mb-12 flex items-start gap-6">
               <div class="flex flex-col items-center">
                 <div class="w-4 h-4 bg-medi-green-600 rounded-full"></div>
               </div>
@@ -239,12 +254,12 @@
 
         <section class="py-16 md:py-24 px-4 bg-gradient-to-b from-white to-medi-green-50">
           <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
+            <div data-reveal class="text-center mb-16">
               <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Our Core Values</h2>
               <p class="text-gray-600 text-lg max-w-2xl mx-auto">These values shape who we are and how we serve our community</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-              <div class="card-hover bg-white p-8 rounded-3xl border border-medi-green-100 text-center">
+              <div data-reveal class="card-hover bg-white p-8 rounded-3xl border border-medi-green-100 text-center">
                 <div class="w-20 h-20 bg-gradient-to-br from-medi-green-100 to-medi-green-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <svg class="w-10 h-10 text-medi-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -253,7 +268,7 @@
                 <h3 class="text-2xl font-bold text-gray-900 mb-3">Compassion</h3>
                 <p class="text-gray-600 leading-relaxed">We deeply care about our patients and understand their needs. Every interaction is guided by empathy and genuine concern for their wellbeing.</p>
               </div>
-              <div class="card-hover bg-white p-8 rounded-3xl border border-medi-green-100 text-center">
+              <div data-reveal class="card-hover bg-white p-8 rounded-3xl border border-medi-green-100 text-center">
                 <div class="w-20 h-20 bg-gradient-to-br from-medi-green-100 to-medi-green-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <svg class="w-10 h-10 text-medi-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
@@ -262,7 +277,7 @@
                 <h3 class="text-2xl font-bold text-gray-900 mb-3">Nurturing</h3>
                 <p class="text-gray-600 leading-relaxed">We foster growth and development in all aspects of our service. We nurture relationships with our patients and team, creating a supportive healthcare community.</p>
               </div>
-              <div class="card-hover bg-white p-8 rounded-3xl border border-medi-green-100 text-center">
+              <div data-reveal class="card-hover bg-white p-8 rounded-3xl border border-medi-green-100 text-center">
                 <div class="w-20 h-20 bg-gradient-to-br from-medi-green-100 to-medi-green-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <svg class="w-10 h-10 text-medi-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m7 0a9 9 0 11-18 0 9 9 0 0118 0z" />
