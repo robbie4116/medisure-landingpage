@@ -1,5 +1,5 @@
 import { COMPLETE_PRICE_LIST_ROWS, HOME_SERVICE_ROWS, type ServiceRow } from "./e-laboratory-data";
-import { setupPageTransitionNavigation, setupScrollReveal } from "./shared";
+import { applySiteContactInfo, setupPageTransitionNavigation, setupScrollReveal } from "./shared";
 
 const ROW_CLASS = "hover:bg-medi-green-50 transition-colors";
 const SERVICE_CELL_CLASS = "px-6 %PADDING% text-gray-700";
@@ -120,4 +120,5 @@ function setupPricelistFilters(): void {
 setupHomeServicesTable();
 setupPricelistFilters();
 setupPageTransitionNavigation();
+applySiteContactInfo();
 setupScrollReveal();

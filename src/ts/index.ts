@@ -1,4 +1,4 @@
-import { createPageTransitionNavigator, setupScrollReveal } from "./shared";
+import { applySiteContactInfo, createPageTransitionNavigator, setupScrollReveal } from "./shared";
 
 const AUTH_REDIRECT_URL = "https://myhealth.medisureonline.com/";
 const SIGN_IN_REDIRECT_URL = "https://myhealth.medisureonline.com/SignIn";
@@ -214,6 +214,7 @@ function setupHashScrollHandler(): void {
 }
 
 canonicalizeLandingPath();
+applySiteContactInfo();
 setupButtonHandlers();
 setupAnchorNavigation();
 setupInitialScroll();

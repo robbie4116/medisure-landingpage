@@ -1,4 +1,5 @@
-import { setupPageTransitionNavigation, setupScrollReveal } from "./shared";
+import { applySiteContactInfo, setupPageTransitionNavigation, setupScrollReveal } from "./shared";
 
 setupPageTransitionNavigation();
+applySiteContactInfo();
 setupScrollReveal();

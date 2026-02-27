@@ -3,6 +3,8 @@ const LANDING_HASH_PATTERN = /^\/(?:index\.html)?#([a-zA-Z0-9_-]+)$/;
 const SCROLL_REVEAL_STYLE_ID = "medisure-scroll-reveal-style";
 const DEFAULT_REVEAL_SELECTOR = "[data-reveal]";
 const REVEAL_TRANSITION_MS = 620;
+const SITE_CONTACT_EMAIL = "medisureteam@medisureonline.com";
+const SITE_CONTACT_PHONE = "+639668769058";
 
 type InPageSmoothScrollOptions = {
   anchorSelector?: string;
@@ -11,6 +13,24 @@ type InPageSmoothScrollOptions = {
   settleDelayMs?: number;
   settleMinDeltaPx?: number;
 };
+
+export function applySiteContactInfo(): void {
+  document.querySelectorAll<HTMLElement>("[data-site-email]").forEach((element) => {
+    element.textContent = SITE_CONTACT_EMAIL;
+  });
+
+  document.querySelectorAll<HTMLElement>("[data-site-phone]").forEach((element) => {
+    element.textContent = SITE_CONTACT_PHONE;
+  });
+
+  document.querySelectorAll<HTMLAnchorElement>("[data-site-email-link]").forEach((link) => {
+    link.href = `mailto:${SITE_CONTACT_EMAIL}`;
+  });
+
+  document.querySelectorAll<HTMLAnchorElement>("[data-site-phone-link]").forEach((link) => {
+    link.href = `tel:${SITE_CONTACT_PHONE}`;
+  });
+}
 
 export function createPageTransitionNavigator(delayMs = 220): (url: string) => void {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

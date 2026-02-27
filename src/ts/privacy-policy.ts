@@ -1,3 +1,4 @@
-import { setupPageTransitionNavigation } from "./shared";
+import { applySiteContactInfo, setupPageTransitionNavigation } from "./shared";
 
 setupPageTransitionNavigation();
+applySiteContactInfo();
