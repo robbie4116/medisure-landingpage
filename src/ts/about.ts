@@ -1,4 +1,4 @@
-import { applySiteContactInfo, setupPageTransitionNavigation, setupScrollReveal } from "./shared";
+import { applySiteContactInfo, setupBackLinkNavigation, setupPageTransitionNavigation, setupScrollReveal } from "./shared";
 
 function setupStoryNavVisibility(): void {
   const storyNav = document.getElementById("story-nav");
@@ -43,6 +43,7 @@ function setupStoryNavVisibility(): void {
 }
 
 setupPageTransitionNavigation();
+setupBackLinkNavigation();
 applySiteContactInfo();
 setupStoryNavVisibility();
 setupScrollReveal(["[data-reveal]:not([data-reveal-late])"], 0.18, "0px 0px -4% 0px");

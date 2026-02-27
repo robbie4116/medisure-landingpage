@@ -24,8 +24,8 @@
         scrollbar-width: thin;
         scrollbar-color: #9ca3af #f3f4f6;
       }
-
-      body {
+      main,
+      footer {
         animation: pageEnter 0.32s ease both;
       }
 
@@ -39,8 +39,8 @@
           transform: translateY(0);
         }
       }
-
-      body.page-leaving {
+      body.page-leaving main,
+      body.page-leaving footer {
         opacity: 0;
         transform: translateY(8px);
         transition: opacity 0.22s ease, transform 0.22s ease;
@@ -88,7 +88,15 @@
         width: 100%;
       }
 
-      .feature-card {
+      
+      .nav-link-active {
+        color: #15803d;
+      }
+
+      .nav-link-active::after {
+        width: 100%;
+      }
+.feature-card {
         transition: transform 0.28s ease, box-shadow 0.28s ease;
       }
 
@@ -115,11 +123,12 @@
       }
 
       @media (prefers-reduced-motion: reduce) {
-        body {
+        main,
+        footer {
           animation: none;
         }
-
-        body.page-leaving {
+        body.page-leaving main,
+        body.page-leaving footer {
           transition: none;
           transform: none;
           opacity: 1;
@@ -156,11 +165,17 @@
         </div>
       </nav>
 
-      <main class="flex-1 pt-8 md:pt-10 pb-16 md:pb-24 px-4">
+      <main id="top" class="flex-1 pt-8 md:pt-10 pb-16 md:pb-24 px-4">
         <div class="max-w-7xl mx-auto">
+          <div class="mb-6 md:mb-8">
+            <a href="/" data-back-link class="back-link">
+              <span>Back</span>
+              <span aria-hidden="true" class="back-link-arrow">&gt;</span>
+            </a>
+          </div>
           <section data-reveal class="grid lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-10 items-center">
             <div>
-              <span class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-medi-green-100 to-medi-green-50 border border-medi-green-300 rounded-full mb-6 shadow-[0_10px_24px_-18px_rgba(61,102,32,0.7)]">
+              <span class="inline-flex items-center gap-[11.2px] px-4 py-2 bg-gradient-to-r from-medi-green-100 to-medi-green-50 border border-medi-green-300 rounded-full mb-6 shadow-[0_10px_24px_-18px_rgba(61,102,32,0.7)]">
                 <span class="w-2.5 h-2.5 bg-medi-green-500 rounded-full shadow-[0_0_0_4px_rgba(156,202,99,0.25)] it-services-tag-dot"></span>
                 <span class="text-medi-green-700 font-semibold text-sm">IT Services</span>
               </span>
@@ -297,10 +312,10 @@
             <div>
               <h4 class="text-lg font-bold mb-6 text-medi-green-400">Services</h4>
               <ul class="space-y-3">
-                <li><a href="/#service-elab" class="text-gray-400 hover:text-white transition-colors">e-Laboratory</a></li>
-                <li><a href="/#service-ekonsulta" class="text-gray-400 hover:text-white transition-colors">e-Konsulta</a></li>
-                <li><a href="/#ebotika" class="text-gray-400 hover:text-white transition-colors">e-Botika</a></li>
-                <li><a href="/#it-services" class="text-gray-400 hover:text-white transition-colors">IT Services</a></li>
+                <li><a href="#top" class="text-gray-400 hover:text-white transition-colors">IT Services</a></li>
+                <li><a href="https://www.grab.com/ph/mart/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">e-Botika</a></li>
+                <li><a href="/aida" class="text-gray-400 hover:text-white transition-colors">Diagnostic Assistant</a></li>
+                <li><a href="/e-laboratory" class="text-gray-400 hover:text-white transition-colors">e-Laboratory</a></li>
               </ul>
             </div>
             <div>
@@ -358,4 +373,3 @@
     <script type="module" src="/src/ts/emr-service-provider.ts"></script>
   </body>
 </html>
-

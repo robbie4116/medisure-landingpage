@@ -1,6 +1,7 @@
 const LANDING_SCROLL_STORAGE_KEY = "landingScrollTarget";
 const LANDING_HASH_PATTERN = /^\/(?:index\.html)?#([a-zA-Z0-9_-]+)$/;
 const SCROLL_REVEAL_STYLE_ID = "medisure-scroll-reveal-style";
+const BACK_LINK_STYLE_ID = "medisure-back-link-style";
 const DEFAULT_REVEAL_SELECTOR = "[data-reveal]";
 const REVEAL_TRANSITION_MS = 620;
 const SITE_CONTACT_EMAIL = "medisureteam@medisureonline.com";
@@ -74,6 +75,10 @@ export function setupPageTransitionNavigation(delayMs = 220): void {
       return;
     }
 
+    if (link.hasAttribute("data-back-link")) {
+      return;
+    }
+
     if (
       event.defaultPrevented ||
       event.button !== 0 ||
@@ -111,6 +116,124 @@ export function setupPageTransitionNavigation(delayMs = 220): void {
     }
 
     event.preventDefault();
+    navigateWithTransition(link.href);
+  });
+}
+
+function canUseHistoryBack(): boolean {
+  if (window.history.length <= 1 || !document.referrer) {
+    return false;
+  }
+
+  try {
+    return new URL(document.referrer).origin === window.location.origin;
+  } catch {
+    return false;
+  }
+}
+
+function ensureBackLinkStyles(): void {
+  if (document.getElementById(BACK_LINK_STYLE_ID)) {
+    return;
+  }
+
+  const style = document.createElement("style");
+  style.id = BACK_LINK_STYLE_ID;
+  style.textContent = `
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42rem;
+      color: #2f5b1f;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition:
+        transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+        gap 240ms cubic-bezier(0.22, 1, 0.36, 1),
+        color 220ms ease,
+        text-shadow 220ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      color: #1f4d12;
+      gap: 0.56rem;
+      transform: translateX(1px);
+      text-shadow: 0 0 14px rgba(74, 163, 56, 0.28);
+      outline: none;
+    }
+
+    .back-link:active {
+      transform: translateX(0);
+      text-shadow: none;
+    }
+
+    .back-link-arrow {
+      display: inline-block;
+      transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .back-link:hover .back-link-arrow,
+    .back-link:focus-visible .back-link-arrow {
+      transform: translateX(4px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .back-link,
+      .back-link-arrow {
+        transition: none !important;
+        transform: none !important;
+      }
+    }
+  `;
+
+  document.head.appendChild(style);
+}
+
+export function setupBackLinkNavigation(delayMs = 220): void {
+  ensureBackLinkStyles();
+  const navigateWithTransition = createPageTransitionNavigator(delayMs);
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element) || !(event instanceof MouseEvent)) {
+      return;
+    }
+
+    const link = event.target.closest("a[data-back-link]");
+    if (!(link instanceof HTMLAnchorElement)) {
+      return;
+    }
+
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (canUseHistoryBack()) {
+      if (prefersReducedMotion) {
+        window.history.back();
+        return;
+      }
+
+      document.body.classList.add("page-leaving");
+      setTimeout(() => {
+        window.history.back();
+      }, delayMs);
+      return;
+    }
+
     navigateWithTransition(link.href);
   });
 }

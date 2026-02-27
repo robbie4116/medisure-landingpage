@@ -1,13 +1,15 @@
 /index.html / 301
 /about /about.html 200
+/aida /aida.html 200
 /e-laboratory /e-laboratory.html 200
-/e-konsulta /e-konsulta.html 200
+/e-konsulta /aida 301
 /emr-service-provider /emr-service-provider.html 200
 /privacy-policy /privacy-policy.html 200
 /terms-and-conditions /terms-and-conditions.html 200
 
+/aida.html /aida 301
 /e-laboratory.html /e-laboratory 301
-/e-konsulta.html /e-konsulta 301
+/e-konsulta.html /aida 301
 /emr-service-provider.html /emr-service-provider 301
 /privacy-policy.html /privacy-policy 301
 /terms-and-conditions.html /terms-and-conditions 301

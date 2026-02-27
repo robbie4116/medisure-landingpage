@@ -33,6 +33,11 @@
       "source": "/e-konsulta",
       "destination": "/aida",
       "permanent": true
+    },
+    {
+      "source": "/e-konsulta.html",
+      "destination": "/aida",
+      "permanent": true
     }
   ],
   "rewrites": [
