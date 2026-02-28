@@ -222,7 +222,53 @@ export function setupServicesDropdown(): void {
   }
 
   const CLOSE_ANIMATION_MS = 170;
+  const MOBILE_MENU_BREAKPOINT_PX = 768;
+  const MOBILE_MENU_MARGIN_PX = 8;
+  const MOBILE_MENU_MAX_WIDTH_PX = 220;
   const closeTimers = new WeakMap<HTMLDetailsElement, number>();
+
+  const getMenuPanel = (menu: HTMLDetailsElement): HTMLElement | null =>
+    menu.querySelector<HTMLElement>(".services-menu-panel");
+
+  const resetMenuPanelLayout = (menu: HTMLDetailsElement): void => {
+    const panel = getMenuPanel(menu);
+    if (!panel) {
+      return;
+    }
+
+    panel.style.removeProperty("position");
+    panel.style.removeProperty("top");
+    panel.style.removeProperty("left");
+    panel.style.removeProperty("width");
+    panel.style.removeProperty("margin-top");
+    panel.style.removeProperty("z-index");
+  };
+
+  const positionMenuPanelForViewport = (menu: HTMLDetailsElement): void => {
+    const panel = getMenuPanel(menu);
+    const summary = menu.querySelector<HTMLElement>("summary");
+    if (!panel || !summary) {
+      return;
+    }
+
+    if (window.innerWidth >= MOBILE_MENU_BREAKPOINT_PX) {
+      resetMenuPanelLayout(menu);
+      return;
+    }
+
+    const triggerRect = summary.getBoundingClientRect();
+    const availableWidth = Math.max(168, window.innerWidth - MOBILE_MENU_MARGIN_PX * 2);
+    const panelWidth = Math.min(MOBILE_MENU_MAX_WIDTH_PX, availableWidth);
+    const maxLeft = Math.max(MOBILE_MENU_MARGIN_PX, window.innerWidth - panelWidth - MOBILE_MENU_MARGIN_PX);
+    const left = Math.min(Math.max(MOBILE_MENU_MARGIN_PX, triggerRect.left), maxLeft);
+
+    panel.style.position = "fixed";
+    panel.style.top = `${Math.round(triggerRect.bottom - 1)}px`;
+    panel.style.left = `${Math.round(left)}px`;
+    panel.style.width = `${Math.round(panelWidth)}px`;
+    panel.style.marginTop = "0";
+    panel.style.zIndex = "80";
+  };
 
   const clearCloseTimer = (menu: HTMLDetailsElement): void => {
     const timer = closeTimers.get(menu);
@@ -237,12 +283,14 @@ export function setupServicesDropdown(): void {
 
     if (!menu.open) {
       menu.classList.remove("services-menu-closing");
+      resetMenuPanelLayout(menu);
       return;
     }
 
     if (!animated) {
       menu.classList.remove("services-menu-closing");
       menu.removeAttribute("open");
+      resetMenuPanelLayout(menu);
       return;
     }
 
@@ -250,6 +298,7 @@ export function setupServicesDropdown(): void {
     const timer = window.setTimeout(() => {
       menu.classList.remove("services-menu-closing");
       menu.removeAttribute("open");
+      resetMenuPanelLayout(menu);
       closeTimers.delete(menu);
     }, CLOSE_ANIMATION_MS);
     closeTimers.set(menu, timer);
@@ -267,6 +316,7 @@ export function setupServicesDropdown(): void {
     clearCloseTimer(menu);
     menu.classList.remove("services-menu-closing");
     closeMenus(menu, false);
+    positionMenuPanelForViewport(menu);
     menu.setAttribute("open", "");
   };
 
@@ -310,6 +360,16 @@ export function setupServicesDropdown(): void {
     }
 
     closeMenus(undefined, true);
+  });
+
+  window.addEventListener("resize", () => {
+    menus.forEach((menu) => {
+      if (menu.open || menu.classList.contains("services-menu-closing")) {
+        positionMenuPanelForViewport(menu);
+      } else {
+        resetMenuPanelLayout(menu);
+      }
+    });
   });
 }
 
