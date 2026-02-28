@@ -15,6 +15,18 @@ type InPageSmoothScrollOptions = {
   settleMinDeltaPx?: number;
 };
 
+function normalizePathname(pathname: string): string {
+  if (!pathname) {
+    return "/";
+  }
+
+  if (pathname === "/") {
+    return pathname;
+  }
+
+  return pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+}
+
 export function applySiteContactInfo(): void {
   document.querySelectorAll<HTMLElement>("[data-site-email]").forEach((element) => {
     element.textContent = SITE_CONTACT_EMAIL;
@@ -64,6 +76,8 @@ function setPendingLandingScrollTarget(target: string): boolean {
 
 export function setupPageTransitionNavigation(delayMs = 220): void {
   const navigateWithTransition = createPageTransitionNavigator(delayMs);
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const scrollBehavior: ScrollBehavior = prefersReducedMotion ? "auto" : "smooth";
 
   document.addEventListener("click", (event) => {
     if (!(event.target instanceof Element) || !(event instanceof MouseEvent)) {
@@ -92,6 +106,27 @@ export function setupPageTransitionNavigation(delayMs = 220): void {
 
     const href = link.getAttribute("href");
     if (!href || href === "#" || href.startsWith("#")) {
+      return;
+    }
+
+    let linkUrl: URL;
+    try {
+      linkUrl = new URL(link.href);
+    } catch {
+      return;
+    }
+
+    const currentUrl = new URL(window.location.href);
+    const isSameDocumentPath =
+      linkUrl.origin === currentUrl.origin &&
+      normalizePathname(linkUrl.pathname) === normalizePathname(currentUrl.pathname) &&
+      linkUrl.search === currentUrl.search;
+    if (isSameDocumentPath && !linkUrl.hash) {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: scrollBehavior,
+      });
       return;
     }
 
@@ -142,7 +177,19 @@ function ensureBackLinkStyles(): void {
         gap 240ms cubic-bezier(0.22, 1, 0.36, 1),
         color 220ms ease,
         text-shadow 220ms ease;
+      animation: backLinkEnter 360ms cubic-bezier(0.22, 1, 0.36, 1) 35ms both;
       -webkit-tap-highlight-color: transparent;
+    }
+
+    @keyframes backLinkEnter {
+      from {
+        opacity: 0;
+        transform: translateX(-14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     .back-link:hover,
@@ -172,8 +219,10 @@ function ensureBackLinkStyles(): void {
     @media (prefers-reduced-motion: reduce) {
       .back-link,
       .back-link-arrow {
+        animation: none !important;
         transition: none !important;
         transform: none !important;
+        opacity: 1 !important;
       }
     }
   `;
