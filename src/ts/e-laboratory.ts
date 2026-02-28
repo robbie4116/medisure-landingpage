@@ -1,11 +1,9 @@
 import { COMPLETE_PRICE_LIST_ROWS, HOME_SERVICE_ROWS, type ServiceRow } from "./e-laboratory-data";
 import {
   applySiteContactInfo,
-  setupBackLinkNavigation,
   setupInPageSmoothScroll,
-  setupPageTransitionNavigation,
   setupScrollReveal,
-  setupServicesDropdown,
+  setupStandardPageNavigation,
 } from "./shared";
 
 const ROW_CLASS = "hover:bg-medi-green-50 transition-colors";
@@ -13,7 +11,6 @@ const SERVICE_CELL_CLASS = "px-6 %PADDING% text-gray-700";
 const PRICE_CELL_CLASS = "px-6 %PADDING% text-right font-medium text-gray-900";
 
 type PricedServiceRow = ServiceRow & {
-  index: number;
   serviceLower: string;
   priceValue: number;
 };
@@ -70,9 +67,8 @@ function setupPricelistFilters(): void {
     return;
   }
 
-  const items: PricedServiceRow[] = COMPLETE_PRICE_LIST_ROWS.map((item, index) => ({
+  const items: PricedServiceRow[] = COMPLETE_PRICE_LIST_ROWS.map((item) => ({
     ...item,
-    index,
     serviceLower: item.service.toLowerCase(),
     priceValue: parsePrice(item.price),
   }));
@@ -106,8 +102,7 @@ function setupPricelistFilters(): void {
     if (!filtered.length) {
       tbody.replaceChildren(emptyRow);
     } else {
-      const ordered = filtered.sort((a, b) => a.index - b.index);
-      renderRows(tbody, ordered, "py-3");
+      renderRows(tbody, filtered, "py-3");
     }
 
     if (countLabel) {
@@ -126,9 +121,7 @@ function setupPricelistFilters(): void {
 
 setupHomeServicesTable();
 setupPricelistFilters();
-setupPageTransitionNavigation();
-setupBackLinkNavigation();
-setupServicesDropdown();
+setupStandardPageNavigation();
 applySiteContactInfo();
 setupInPageSmoothScroll({ topOffsetPx: 10 });
 setupScrollReveal();

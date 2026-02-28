@@ -1,8 +1,6 @@
-import { applySiteContactInfo, setupBackLinkNavigation, setupInPageSmoothScroll, setupPageTransitionNavigation, setupServicesDropdown } from "./shared";
+import { applySiteContactInfo, setupInPageSmoothScroll, setupStandardPageNavigation } from "./shared";
 
 // Keep TOC simple (no persistent active highlight), but use smooth scrolling.
-setupPageTransitionNavigation();
-setupBackLinkNavigation();
-setupServicesDropdown();
+setupStandardPageNavigation();
 setupInPageSmoothScroll({ topOffsetPx: 10 });
 applySiteContactInfo();

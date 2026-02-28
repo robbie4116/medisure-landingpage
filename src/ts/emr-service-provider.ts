@@ -1,8 +1,6 @@
-import { applySiteContactInfo, setupBackLinkNavigation, setupInPageSmoothScroll, setupPageTransitionNavigation, setupScrollReveal, setupServicesDropdown } from "./shared";
+import { applySiteContactInfo, setupInPageSmoothScroll, setupScrollReveal, setupStandardPageNavigation } from "./shared";
 
-setupPageTransitionNavigation();
-setupBackLinkNavigation();
-setupServicesDropdown();
+setupStandardPageNavigation();
 applySiteContactInfo();
 setupInPageSmoothScroll({ topOffsetPx: 10 });
 setupScrollReveal();

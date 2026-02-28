@@ -5,6 +5,8 @@ const BACK_LINK_STYLE_ID = "medisure-back-link-style";
 const BACK_LINK_STYLESHEET_ID = "medisure-back-link-stylesheet";
 const SERVICES_MENU_STYLE_ID = "medisure-services-menu-style";
 const SERVICES_MENU_STYLESHEET_ID = "medisure-services-menu-stylesheet";
+const BACK_LINK_STYLESHEET_HREF = "/styles/back-link.css";
+const SERVICES_MENU_STYLESHEET_HREF = "/styles/services-menu.css";
 const DEFAULT_REVEAL_SELECTOR = "[data-reveal]";
 const REVEAL_TRANSITION_MS = 620;
 const SITE_CONTACT_EMAIL = "medisureteam@medisureonline.com";
@@ -48,178 +50,29 @@ export function applySiteContactInfo(): void {
   });
 }
 
+function ensureStylesheetLink(stylesheetId: string, href: string, legacyInlineStyleId?: string): void {
+  if (document.getElementById(stylesheetId)) {
+    return;
+  }
+
+  if (legacyInlineStyleId && document.getElementById(legacyInlineStyleId)) {
+    return;
+  }
+
+  const link = document.createElement("link");
+  link.id = stylesheetId;
+  link.rel = "stylesheet";
+  link.href = href;
+  document.head.appendChild(link);
+}
+
 export function setupServicesDropdown(): void {
   const menus = Array.from(document.querySelectorAll<HTMLDetailsElement>("details[data-services-menu]"));
   if (!menus.length) {
     return;
   }
 
-  if (!document.getElementById(SERVICES_MENU_STYLE_ID) && !document.getElementById(SERVICES_MENU_STYLESHEET_ID)) {
-    const style = document.createElement("style");
-    style.id = SERVICES_MENU_STYLE_ID;
-    style.textContent = `
-      details[data-services-menu] {
-        position: relative;
-      }
-
-      details[data-services-menu] > :not(summary) {
-        display: block;
-      }
-
-      details[data-services-menu] > summary {
-        list-style: none;
-        user-select: none;
-        position: relative;
-        padding: 0.35rem 0.58rem;
-        border-radius: 0.66rem;
-      }
-
-      details[data-services-menu] > summary::-webkit-details-marker {
-        display: none;
-      }
-
-      details[data-services-menu] > summary > span[aria-hidden="true"] {
-        transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
-      }
-
-      details[data-services-menu][open] > summary > span[aria-hidden="true"] {
-        transform: rotate(180deg);
-      }
-
-      details[data-services-menu][open] > summary {
-        background: #ffffff;
-        z-index: 3;
-      }
-
-      details[data-services-menu][open] > summary::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border: 1px solid #e5e7eb;
-        border-bottom-color: #ffffff;
-        border-radius: 0.66rem 0.66rem 0 0;
-        pointer-events: none;
-      }
-
-      .services-menu-panel {
-        display: block;
-        visibility: hidden;
-        top: calc(100% - 1px) !important;
-        margin-top: 0 !important;
-        border-top-left-radius: 0.18rem;
-        box-shadow: 0 20px 34px -26px rgba(17, 24, 39, 0.5);
-        transform-origin: top left;
-        overflow: hidden;
-        opacity: 0;
-        transform: scaleY(0.12);
-        clip-path: inset(0 0 100% 0);
-        pointer-events: none;
-      }
-
-      details[data-services-menu][open] > .services-menu-panel {
-        visibility: visible;
-        pointer-events: auto;
-        animation: servicesMenuDrop 210ms cubic-bezier(0.22, 1, 0.36, 1) both;
-      }
-
-      details[data-services-menu].services-menu-closing > .services-menu-panel {
-        visibility: visible;
-        pointer-events: none;
-        animation: servicesMenuClose 170ms cubic-bezier(0.4, 0, 0.2, 1) both;
-      }
-
-      @keyframes servicesMenuDrop {
-        from {
-          opacity: 0;
-          transform: scaleY(0.12);
-          clip-path: inset(0 0 100% 0);
-        }
-        to {
-          opacity: 1;
-          transform: scaleY(1);
-          clip-path: inset(0 0 0 0);
-        }
-      }
-
-      @keyframes servicesMenuClose {
-        from {
-          opacity: 1;
-          transform: scaleY(1);
-          clip-path: inset(0 0 0 0);
-        }
-        to {
-          opacity: 0;
-          transform: scaleY(0.12);
-          clip-path: inset(0 0 100% 0);
-        }
-      }
-
-      details[data-services-menu][open] > .services-menu-panel > p,
-      details[data-services-menu][open] > .services-menu-panel > a {
-        animation: servicesMenuItemDrop 170ms cubic-bezier(0.22, 1, 0.36, 1) both;
-      }
-
-      details[data-services-menu][open] > .services-menu-panel > p {
-        animation-delay: 22ms;
-      }
-
-      details[data-services-menu][open] > .services-menu-panel > a:nth-child(2) {
-        animation-delay: 36ms;
-      }
-
-      details[data-services-menu][open] > .services-menu-panel > a:nth-child(3) {
-        animation-delay: 52ms;
-      }
-
-      details[data-services-menu][open] > .services-menu-panel > a:nth-child(4) {
-        animation-delay: 68ms;
-      }
-
-      details[data-services-menu][open] > .services-menu-panel > a:nth-child(5) {
-        animation-delay: 84ms;
-      }
-
-      details[data-services-menu].services-menu-closing > .services-menu-panel > p,
-      details[data-services-menu].services-menu-closing > .services-menu-panel > a {
-        animation: none;
-      }
-
-      details[data-services-menu].services-menu-closing > summary > span[aria-hidden="true"] {
-        transform: rotate(0deg);
-      }
-
-      @keyframes servicesMenuItemDrop {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        details[data-services-menu] > summary > span[aria-hidden="true"],
-        .services-menu-panel {
-          transition: none !important;
-          animation: none !important;
-          transform: none !important;
-          clip-path: none !important;
-          opacity: 1 !important;
-        }
-
-        .services-menu-panel > p,
-        .services-menu-panel > a {
-          transition: none !important;
-          animation: none !important;
-          transform: none !important;
-          opacity: 1 !important;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-  }
+  ensureStylesheetLink(SERVICES_MENU_STYLESHEET_ID, SERVICES_MENU_STYLESHEET_HREF, SERVICES_MENU_STYLE_ID);
 
   const CLOSE_ANIMATION_MS = 170;
   const MOBILE_MENU_BREAKPOINT_PX = 768;
@@ -312,7 +165,8 @@ export function setupServicesDropdown(): void {
   menus.forEach((menu) => {
     const summary = menu.querySelector("summary");
     if (summary) {
-      summary.addEventListener("click", (event) => {
+      let suppressNextClick = false;
+      const handleSummaryActivate = (event: Event): void => {
         event.preventDefault();
 
         if (menu.open && !menu.classList.contains("services-menu-closing")) {
@@ -321,6 +175,24 @@ export function setupServicesDropdown(): void {
         }
 
         openMenu(menu);
+      };
+
+      summary.addEventListener("touchend", (event) => {
+        suppressNextClick = true;
+        handleSummaryActivate(event);
+        window.setTimeout(() => {
+          suppressNextClick = false;
+        }, 320);
+      });
+
+      summary.addEventListener("click", (event) => {
+        if (suppressNextClick) {
+          suppressNextClick = false;
+          event.preventDefault();
+          return;
+        }
+
+        handleSummaryActivate(event);
       });
     }
 
@@ -335,9 +207,10 @@ export function setupServicesDropdown(): void {
     if (!(event.target instanceof Node)) {
       return;
     }
+    const target = event.target;
 
     menus.forEach((menu) => {
-      if (!menu.contains(event.target)) {
+      if (!menu.contains(target)) {
         closeMenu(menu, true);
       }
     });
@@ -360,6 +233,12 @@ export function setupServicesDropdown(): void {
       }
     });
   });
+}
+
+export function setupStandardPageNavigation(delayMs = 220): void {
+  setupPageTransitionNavigation(delayMs);
+  setupBackLinkNavigation(delayMs);
+  setupServicesDropdown();
 }
 
 export function createPageTransitionNavigator(delayMs = 220): (url: string) => void {
@@ -486,78 +365,7 @@ export function setupPageTransitionNavigation(delayMs = 220): void {
 }
 
 function ensureBackLinkStyles(): void {
-  if (document.getElementById(BACK_LINK_STYLE_ID) || document.getElementById(BACK_LINK_STYLESHEET_ID)) {
-    return;
-  }
-
-  const style = document.createElement("style");
-  style.id = BACK_LINK_STYLE_ID;
-  style.textContent = `
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.42rem;
-      color: #2f5b1f;
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 0.01em;
-      text-decoration: none;
-      transition:
-        transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
-        gap 240ms cubic-bezier(0.22, 1, 0.36, 1),
-        color 220ms ease,
-        text-shadow 220ms ease;
-      animation: backLinkEnter 360ms cubic-bezier(0.22, 1, 0.36, 1) 35ms both;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    @keyframes backLinkEnter {
-      from {
-        opacity: 0;
-        transform: translateX(-14px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .back-link:hover,
-    .back-link:focus-visible {
-      color: #1f4d12;
-      gap: 0.56rem;
-      transform: translateX(1px);
-      text-shadow: 0 0 14px rgba(74, 163, 56, 0.28);
-      outline: none;
-    }
-
-    .back-link:active {
-      transform: translateX(0);
-      text-shadow: none;
-    }
-
-    .back-link-arrow {
-      display: inline-block;
-      transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .back-link:hover .back-link-arrow,
-    .back-link:focus-visible .back-link-arrow {
-      transform: translateX(4px);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .back-link,
-      .back-link-arrow {
-        animation: none !important;
-        transition: none !important;
-        transform: none !important;
-        opacity: 1 !important;
-      }
-    }
-  `;
-
-  document.head.appendChild(style);
+  ensureStylesheetLink(BACK_LINK_STYLESHEET_ID, BACK_LINK_STYLESHEET_HREF, BACK_LINK_STYLE_ID);
 }
 
 export function setupBackLinkNavigation(delayMs = 220): void {
