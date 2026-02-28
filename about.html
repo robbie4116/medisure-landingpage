@@ -24,7 +24,6 @@
         padding: 0;
         scrollbar-width: thin;
         scrollbar-color: #9ca3af #f3f4f6;
-        scrollbar-gutter: stable;
       }
       body {
         font-family: "Plus Jakarta Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -77,6 +76,10 @@
       .card-hover:hover {
         transform: translateY(-8px);
         box-shadow: 0 25px 50px -12px rgba(22, 163, 74, 0.25);
+      }
+
+      .gradient-bg {
+        background: linear-gradient(135deg, #edf7e8 0%, #f8fcf5 48%, #d2e7c2 100%);
       }
 
       .nav-link {
@@ -167,14 +170,14 @@
     </style>
   </head>
   <body class="h-full font-jakarta text-gray-800">
-    <div class="min-h-full flex flex-col bg-gradient-to-b from-medi-green-50 to-white">
+    <div class="min-h-full flex flex-col gradient-bg">
       <nav id="story-nav" class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-medi-green-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex flex-wrap items-center h-auto md:h-24 py-3 md:py-0 md:relative">
-            <a class="order-1 flex items-center gap-2" href="/">
+          <div class="flex flex-wrap items-center h-auto md:h-24 py-3 md:py-0 md:grid md:grid-cols-[12rem_1fr_12rem] md:items-center">
+            <a class="order-1 flex items-center gap-2 md:order-none md:col-start-1 md:justify-self-start" href="/">
               <img src="/assets/images/logo.png" alt="Medisure" class="h-16 md:h-20 w-auto" />
             </a>
-            <div class="order-3 basis-full mt-3 md:mt-0 md:order-2 md:absolute md:left-1/2 md:-translate-x-1/2 flex items-center gap-4 md:gap-6 overflow-x-auto overflow-y-visible md:overflow-visible whitespace-nowrap md:justify-center">
+            <div class="order-3 basis-full mt-3 md:mt-0 flex items-center gap-4 md:gap-6 overflow-x-auto overflow-y-visible md:overflow-visible whitespace-nowrap md:justify-center md:order-none md:col-start-2 md:basis-auto md:justify-self-center">
               <details data-services-menu class="relative">
                   <summary class="nav-link list-none cursor-pointer text-gray-700 font-medium hover:text-medi-green-600 inline-flex items-center gap-1 [&::-webkit-details-marker]:hidden">
                     <span>Services</span>
@@ -207,7 +210,7 @@
             </div>
             <a
               href="https://myhealth.medisureonline.com/SignIn"
-              class="order-2 ml-auto md:order-3 md:ml-auto px-5 py-2.5 bg-white border-2 border-medi-green-600 text-medi-green-600 font-semibold rounded-xl hover:bg-medi-green-50 transition-all duration-300"
+              class="order-2 ml-auto md:order-none md:ml-0 md:col-start-3 md:justify-self-end px-5 py-2.5 bg-white border-2 border-medi-green-600 text-medi-green-600 font-semibold rounded-xl hover:bg-medi-green-50 transition-all duration-300"
             >
               Sign In
             </a>
@@ -216,7 +219,7 @@
       </nav>
 
       <main class="flex-1">
-        <section class="pt-8 md:pt-10 pb-12 px-4 bg-gradient-to-b from-medi-green-50 to-white">
+        <section class="pt-8 md:pt-10 pb-12 px-4">
           <div class="max-w-3xl mx-auto mb-6 md:mb-8">
             <a href="/" data-back-link class="back-link">
               <span>Back</span>
@@ -229,7 +232,7 @@
           </div>
         </section>
 
-        <section class="py-16 md:py-24 px-4 bg-white">
+        <section class="py-16 md:py-24 px-4">
           <div class="max-w-3xl mx-auto">
             <div data-reveal class="mb-12 flex items-start gap-6">
               <div class="flex flex-col items-center">
@@ -270,7 +273,7 @@
           </div>
         </section>
 
-        <section class="py-16 md:py-24 px-4 bg-gradient-to-b from-white to-medi-green-50">
+        <section class="py-16 md:py-24 px-4">
           <div class="max-w-6xl mx-auto">
             <div data-reveal class="text-center mb-16">
               <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Our Core Values</h2>
@@ -376,6 +379,7 @@
     <script type="module" src="/src/ts/about.ts"></script>
   </body>
 </html>
+
 
 
 

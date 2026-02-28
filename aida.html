@@ -24,7 +24,6 @@
         padding: 0;
         scrollbar-width: thin;
         scrollbar-color: #9ca3af #f3f4f6;
-        scrollbar-gutter: stable;
       }
       body {
         font-family: "Plus Jakarta Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -145,11 +144,11 @@
     <div class="min-h-full gradient-bg">
       <nav class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-medi-green-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex flex-wrap items-center h-auto md:h-24 py-3 md:py-0 md:relative">
-            <a class="order-1 flex items-center gap-2" href="/">
+          <div class="flex flex-wrap items-center h-auto md:h-24 py-3 md:py-0 md:grid md:grid-cols-[12rem_1fr_12rem] md:items-center">
+            <a class="order-1 flex items-center gap-2 md:order-none md:col-start-1 md:justify-self-start" href="/">
               <img src="/assets/images/logo.png" alt="Medisure" class="h-16 md:h-20 w-auto" />
             </a>
-            <div class="order-3 basis-full mt-3 md:mt-0 md:order-2 md:absolute md:left-1/2 md:-translate-x-1/2 flex items-center gap-4 md:gap-6 overflow-x-auto overflow-y-visible md:overflow-visible whitespace-nowrap md:justify-center">
+            <div class="order-3 basis-full mt-3 md:mt-0 flex items-center gap-4 md:gap-6 overflow-x-auto overflow-y-visible md:overflow-visible whitespace-nowrap md:justify-center md:order-none md:col-start-2 md:basis-auto md:justify-self-center">
               <details data-services-menu class="relative">
                   <summary class="nav-link list-none cursor-pointer text-gray-700 font-medium hover:text-medi-green-600 inline-flex items-center gap-1 [&::-webkit-details-marker]:hidden">
                     <span>Services</span>
@@ -182,7 +181,7 @@
             </div>
             <a
               href="https://myhealth.medisureonline.com/SignIn"
-              class="order-2 ml-auto md:order-3 md:ml-auto px-5 py-2.5 bg-white border-2 border-medi-green-600 text-medi-green-600 font-semibold rounded-xl hover:bg-medi-green-50 transition-all duration-300"
+              class="order-2 ml-auto md:order-none md:ml-0 md:col-start-3 md:justify-self-end px-5 py-2.5 bg-white border-2 border-medi-green-600 text-medi-green-600 font-semibold rounded-xl hover:bg-medi-green-50 transition-all duration-300"
             >
               Sign In
             </a>
@@ -379,6 +378,7 @@
     <script type="module" src="/src/ts/aida.ts"></script>
   </body>
 </html>
+
 
 
 
