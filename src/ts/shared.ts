@@ -2,6 +2,7 @@ const LANDING_SCROLL_STORAGE_KEY = "landingScrollTarget";
 const LANDING_HASH_PATTERN = /^\/(?:index\.html)?#([a-zA-Z0-9_-]+)$/;
 const SCROLL_REVEAL_STYLE_ID = "medisure-scroll-reveal-style";
 const BACK_LINK_STYLE_ID = "medisure-back-link-style";
+const BACK_LINK_STYLESHEET_ID = "medisure-back-link-stylesheet";
 const DEFAULT_REVEAL_SELECTOR = "[data-reveal]";
 const REVEAL_TRANSITION_MS = 620;
 const SITE_CONTACT_EMAIL = "medisureteam@medisureonline.com";
@@ -156,7 +157,7 @@ export function setupPageTransitionNavigation(delayMs = 220): void {
 }
 
 function ensureBackLinkStyles(): void {
-  if (document.getElementById(BACK_LINK_STYLE_ID)) {
+  if (document.getElementById(BACK_LINK_STYLE_ID) || document.getElementById(BACK_LINK_STYLESHEET_ID)) {
     return;
   }
 
