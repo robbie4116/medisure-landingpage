@@ -1,4 +1,4 @@
-import { applySiteContactInfo, createPageTransitionNavigator, setupScrollReveal } from "./shared";
+import { applySiteContactInfo, createPageTransitionNavigator, setupScrollReveal, setupServicesDropdown } from "./shared";
 
 const AUTH_REDIRECT_URL = "https://myhealth.medisureonline.com/";
 const SIGN_IN_REDIRECT_URL = "https://myhealth.medisureonline.com/SignIn";
@@ -154,6 +154,16 @@ function setupAnchorNavigation(): void {
       return;
     }
 
+    let linkUrl: URL;
+    try {
+      linkUrl = new URL(link.href);
+    } catch {
+      return;
+    }
+
+    const isTopNavLink = Boolean(link.closest("nav"));
+    const isSameOrigin = linkUrl.origin === window.location.origin;
+
     if (href.startsWith("#") || href.startsWith("/#") || href.startsWith("/index.html#")) {
       const normalizedHash = normalizeLandingHashHref(href);
       if (normalizedHash !== "#") {
@@ -170,6 +180,12 @@ function setupAnchorNavigation(): void {
         requestAnimationFrame(() => scrollToAppSectionWithSettle(`#${scrollTarget}`));
         history.replaceState(null, "", "/");
       }
+      return;
+    }
+
+    if (isTopNavLink && isSameOrigin) {
+      event.preventDefault();
+      window.location.href = link.href;
       return;
     }
 
@@ -215,6 +231,7 @@ function setupHashScrollHandler(): void {
 
 canonicalizeLandingPath();
 applySiteContactInfo();
+setupServicesDropdown();
 setupButtonHandlers();
 setupAnchorNavigation();
 setupInitialScroll();

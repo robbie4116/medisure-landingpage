@@ -3,6 +3,8 @@ const LANDING_HASH_PATTERN = /^\/(?:index\.html)?#([a-zA-Z0-9_-]+)$/;
 const SCROLL_REVEAL_STYLE_ID = "medisure-scroll-reveal-style";
 const BACK_LINK_STYLE_ID = "medisure-back-link-style";
 const BACK_LINK_STYLESHEET_ID = "medisure-back-link-stylesheet";
+const SERVICES_MENU_STYLE_ID = "medisure-services-menu-style";
+const SERVICES_MENU_STYLESHEET_ID = "medisure-services-menu-stylesheet";
 const DEFAULT_REVEAL_SELECTOR = "[data-reveal]";
 const REVEAL_TRANSITION_MS = 620;
 const SITE_CONTACT_EMAIL = "medisureteam@medisureonline.com";
@@ -43,6 +45,271 @@ export function applySiteContactInfo(): void {
 
   document.querySelectorAll<HTMLAnchorElement>("[data-site-phone-link]").forEach((link) => {
     link.href = `tel:${SITE_CONTACT_PHONE}`;
+  });
+}
+
+export function setupServicesDropdown(): void {
+  const menus = Array.from(document.querySelectorAll<HTMLDetailsElement>("details[data-services-menu]"));
+  if (!menus.length) {
+    return;
+  }
+
+  if (!document.getElementById(SERVICES_MENU_STYLE_ID) && !document.getElementById(SERVICES_MENU_STYLESHEET_ID)) {
+    const style = document.createElement("style");
+    style.id = SERVICES_MENU_STYLE_ID;
+    style.textContent = `
+      details[data-services-menu] {
+        position: relative;
+      }
+
+      details[data-services-menu] > :not(summary) {
+        display: block;
+      }
+
+      details[data-services-menu] > summary {
+        list-style: none;
+        user-select: none;
+        position: relative;
+        padding: 0.35rem 0.58rem;
+        border-radius: 0.66rem;
+      }
+
+      details[data-services-menu] > summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details[data-services-menu] > summary > span[aria-hidden="true"] {
+        transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      details[data-services-menu][open] > summary > span[aria-hidden="true"] {
+        transform: rotate(180deg);
+      }
+
+      details[data-services-menu][open] > summary {
+        background: #ffffff;
+        z-index: 3;
+      }
+
+      details[data-services-menu][open] > summary::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 1px solid #e5e7eb;
+        border-bottom-color: #ffffff;
+        border-radius: 0.66rem 0.66rem 0 0;
+        pointer-events: none;
+      }
+
+      .services-menu-panel {
+        display: block;
+        visibility: hidden;
+        top: calc(100% - 1px) !important;
+        margin-top: 0 !important;
+        border-top-left-radius: 0.18rem;
+        box-shadow: 0 20px 34px -26px rgba(17, 24, 39, 0.5);
+        transform-origin: top left;
+        overflow: hidden;
+        opacity: 0;
+        transform: scaleY(0.12);
+        clip-path: inset(0 0 100% 0);
+        pointer-events: none;
+      }
+
+      details[data-services-menu][open] > .services-menu-panel {
+        visibility: visible;
+        pointer-events: auto;
+        animation: servicesMenuDrop 210ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      details[data-services-menu].services-menu-closing > .services-menu-panel {
+        visibility: visible;
+        pointer-events: none;
+        animation: servicesMenuClose 170ms cubic-bezier(0.4, 0, 0.2, 1) both;
+      }
+
+      @keyframes servicesMenuDrop {
+        from {
+          opacity: 0;
+          transform: scaleY(0.12);
+          clip-path: inset(0 0 100% 0);
+        }
+        to {
+          opacity: 1;
+          transform: scaleY(1);
+          clip-path: inset(0 0 0 0);
+        }
+      }
+
+      @keyframes servicesMenuClose {
+        from {
+          opacity: 1;
+          transform: scaleY(1);
+          clip-path: inset(0 0 0 0);
+        }
+        to {
+          opacity: 0;
+          transform: scaleY(0.12);
+          clip-path: inset(0 0 100% 0);
+        }
+      }
+
+      details[data-services-menu][open] > .services-menu-panel > p,
+      details[data-services-menu][open] > .services-menu-panel > a {
+        animation: servicesMenuItemDrop 170ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      details[data-services-menu][open] > .services-menu-panel > p {
+        animation-delay: 22ms;
+      }
+
+      details[data-services-menu][open] > .services-menu-panel > a:nth-child(2) {
+        animation-delay: 36ms;
+      }
+
+      details[data-services-menu][open] > .services-menu-panel > a:nth-child(3) {
+        animation-delay: 52ms;
+      }
+
+      details[data-services-menu][open] > .services-menu-panel > a:nth-child(4) {
+        animation-delay: 68ms;
+      }
+
+      details[data-services-menu][open] > .services-menu-panel > a:nth-child(5) {
+        animation-delay: 84ms;
+      }
+
+      details[data-services-menu].services-menu-closing > .services-menu-panel > p,
+      details[data-services-menu].services-menu-closing > .services-menu-panel > a {
+        animation: none;
+      }
+
+      details[data-services-menu].services-menu-closing > summary > span[aria-hidden="true"] {
+        transform: rotate(0deg);
+      }
+
+      @keyframes servicesMenuItemDrop {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        details[data-services-menu] > summary > span[aria-hidden="true"],
+        .services-menu-panel {
+          transition: none !important;
+          animation: none !important;
+          transform: none !important;
+          clip-path: none !important;
+          opacity: 1 !important;
+        }
+
+        .services-menu-panel > p,
+        .services-menu-panel > a {
+          transition: none !important;
+          animation: none !important;
+          transform: none !important;
+          opacity: 1 !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  const CLOSE_ANIMATION_MS = 170;
+  const closeTimers = new WeakMap<HTMLDetailsElement, number>();
+
+  const clearCloseTimer = (menu: HTMLDetailsElement): void => {
+    const timer = closeTimers.get(menu);
+    if (typeof timer === "number") {
+      window.clearTimeout(timer);
+      closeTimers.delete(menu);
+    }
+  };
+
+  const closeMenu = (menu: HTMLDetailsElement, animated = true): void => {
+    clearCloseTimer(menu);
+
+    if (!menu.open) {
+      menu.classList.remove("services-menu-closing");
+      return;
+    }
+
+    if (!animated) {
+      menu.classList.remove("services-menu-closing");
+      menu.removeAttribute("open");
+      return;
+    }
+
+    menu.classList.add("services-menu-closing");
+    const timer = window.setTimeout(() => {
+      menu.classList.remove("services-menu-closing");
+      menu.removeAttribute("open");
+      closeTimers.delete(menu);
+    }, CLOSE_ANIMATION_MS);
+    closeTimers.set(menu, timer);
+  };
+
+  const closeMenus = (except?: HTMLDetailsElement, animated = true): void => {
+    menus.forEach((menu) => {
+      if (menu !== except) {
+        closeMenu(menu, animated);
+      }
+    });
+  };
+
+  const openMenu = (menu: HTMLDetailsElement): void => {
+    clearCloseTimer(menu);
+    menu.classList.remove("services-menu-closing");
+    closeMenus(menu, false);
+    menu.setAttribute("open", "");
+  };
+
+  menus.forEach((menu) => {
+    const summary = menu.querySelector("summary");
+    if (summary) {
+      summary.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        if (menu.open && !menu.classList.contains("services-menu-closing")) {
+          closeMenu(menu, true);
+          return;
+        }
+
+        openMenu(menu);
+      });
+    }
+
+    menu.querySelectorAll<HTMLAnchorElement>("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMenu(menu, true);
+      });
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Node)) {
+      return;
+    }
+
+    menus.forEach((menu) => {
+      if (!menu.contains(event.target)) {
+        closeMenu(menu, true);
+      }
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") {
+      return;
+    }
+
+    closeMenus(undefined, true);
   });
 }
 
@@ -118,8 +385,10 @@ export function setupPageTransitionNavigation(delayMs = 220): void {
     }
 
     const currentUrl = new URL(window.location.href);
+    const isTopNavLink = Boolean(link.closest("nav"));
+    const isSameOrigin = linkUrl.origin === currentUrl.origin;
     const isSameDocumentPath =
-      linkUrl.origin === currentUrl.origin &&
+      isSameOrigin &&
       normalizePathname(linkUrl.pathname) === normalizePathname(currentUrl.pathname) &&
       linkUrl.search === currentUrl.search;
     if (isSameDocumentPath && !linkUrl.hash) {
@@ -137,7 +406,12 @@ export function setupPageTransitionNavigation(delayMs = 220): void {
       const target = landingHashMatch[1];
       const didStoreTarget = setPendingLandingScrollTarget(target);
       // Fallback preserves section target if sessionStorage is blocked.
-      navigateWithTransition(didStoreTarget ? "/" : `/#${target}`);
+      const destination = didStoreTarget ? "/" : `/#${target}`;
+      if (isTopNavLink) {
+        window.location.href = destination;
+      } else {
+        navigateWithTransition(destination);
+      }
       return;
     }
 
@@ -148,6 +422,12 @@ export function setupPageTransitionNavigation(delayMs = 220): void {
       link.target === "_blank" ||
       link.hasAttribute("download")
     ) {
+      return;
+    }
+
+    if (isTopNavLink && isSameOrigin) {
+      event.preventDefault();
+      window.location.href = link.href;
       return;
     }
 

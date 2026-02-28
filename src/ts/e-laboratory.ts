@@ -5,6 +5,7 @@ import {
   setupInPageSmoothScroll,
   setupPageTransitionNavigation,
   setupScrollReveal,
+  setupServicesDropdown,
 } from "./shared";
 
 const ROW_CLASS = "hover:bg-medi-green-50 transition-colors";
@@ -127,6 +128,7 @@ setupHomeServicesTable();
 setupPricelistFilters();
 setupPageTransitionNavigation();
 setupBackLinkNavigation();
+setupServicesDropdown();
 applySiteContactInfo();
 setupInPageSmoothScroll({ topOffsetPx: 10 });
 setupScrollReveal();

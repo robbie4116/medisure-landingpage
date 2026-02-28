@@ -1,0 +1,148 @@
+details[data-services-menu] {
+  position: relative;
+}
+
+details[data-services-menu] > :not(summary) {
+  display: block;
+}
+
+details[data-services-menu] > summary {
+  list-style: none;
+  user-select: none;
+  position: relative;
+  padding: 0.35rem 0.58rem;
+  border-radius: 0.66rem;
+}
+
+details[data-services-menu] > summary::-webkit-details-marker {
+  display: none;
+}
+
+details[data-services-menu] > summary > span[aria-hidden="true"] {
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+details[data-services-menu][open] > summary > span[aria-hidden="true"] {
+  transform: rotate(180deg);
+}
+
+details[data-services-menu][open] > summary {
+  background: #ffffff;
+  z-index: 3;
+}
+
+details[data-services-menu][open] > summary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid #e5e7eb;
+  border-bottom-color: #ffffff;
+  border-radius: 0.66rem 0.66rem 0 0;
+  pointer-events: none;
+}
+
+.services-menu-panel {
+  display: block;
+  visibility: hidden;
+  top: calc(100% - 1px) !important;
+  margin-top: 0 !important;
+  border-top-left-radius: 0.18rem;
+  box-shadow: 0 20px 34px -26px rgba(17, 24, 39, 0.5);
+  transform-origin: top left;
+  overflow: hidden;
+  opacity: 0;
+  transform: scaleY(0.12);
+  clip-path: inset(0 0 100% 0);
+  pointer-events: none;
+}
+
+details[data-services-menu][open] > .services-menu-panel {
+  visibility: visible;
+  pointer-events: auto;
+  animation: servicesMenuDrop 210ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+details[data-services-menu].services-menu-closing > .services-menu-panel {
+  visibility: visible;
+  pointer-events: none;
+  animation: servicesMenuClose 170ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes servicesMenuDrop {
+  from {
+    opacity: 0;
+    transform: scaleY(0.12);
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes servicesMenuClose {
+  from {
+    opacity: 1;
+    transform: scaleY(1);
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    opacity: 0;
+    transform: scaleY(0.12);
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+details[data-services-menu][open] > .services-menu-panel > p,
+details[data-services-menu][open] > .services-menu-panel > a {
+  animation: servicesMenuItemDrop 170ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+details[data-services-menu][open] > .services-menu-panel > p {
+  animation-delay: 22ms;
+}
+
+details[data-services-menu][open] > .services-menu-panel > a:nth-child(2) {
+  animation-delay: 36ms;
+}
+
+details[data-services-menu][open] > .services-menu-panel > a:nth-child(3) {
+  animation-delay: 52ms;
+}
+
+details[data-services-menu][open] > .services-menu-panel > a:nth-child(4) {
+  animation-delay: 68ms;
+}
+
+details[data-services-menu][open] > .services-menu-panel > a:nth-child(5) {
+  animation-delay: 84ms;
+}
+
+details[data-services-menu].services-menu-closing > .services-menu-panel > p,
+details[data-services-menu].services-menu-closing > .services-menu-panel > a {
+  animation: none;
+}
+
+details[data-services-menu].services-menu-closing > summary > span[aria-hidden="true"] {
+  transform: rotate(0deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  details[data-services-menu] > summary > span[aria-hidden="true"],
+  .services-menu-panel {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+
+  .services-menu-panel > p,
+  .services-menu-panel > a {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

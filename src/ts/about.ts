@@ -1,4 +1,4 @@
-import { applySiteContactInfo, setupBackLinkNavigation, setupInPageSmoothScroll, setupPageTransitionNavigation, setupScrollReveal } from "./shared";
+import { applySiteContactInfo, setupBackLinkNavigation, setupInPageSmoothScroll, setupPageTransitionNavigation, setupScrollReveal, setupServicesDropdown } from "./shared";
 
 function setupStoryNavVisibility(): void {
   const storyNav = document.getElementById("story-nav");
@@ -44,6 +44,7 @@ function setupStoryNavVisibility(): void {
 
 setupPageTransitionNavigation();
 setupBackLinkNavigation();
+setupServicesDropdown();
 setupInPageSmoothScroll({ topOffsetPx: 10 });
 applySiteContactInfo();
 setupStoryNavVisibility();
