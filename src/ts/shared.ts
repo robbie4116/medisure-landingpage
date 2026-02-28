@@ -120,18 +120,6 @@ export function setupPageTransitionNavigation(delayMs = 220): void {
   });
 }
 
-function canUseHistoryBack(): boolean {
-  if (window.history.length <= 1 || !document.referrer) {
-    return false;
-  }
-
-  try {
-    return new URL(document.referrer).origin === window.location.origin;
-  } catch {
-    return false;
-  }
-}
-
 function ensureBackLinkStyles(): void {
   if (document.getElementById(BACK_LINK_STYLE_ID)) {
     return;
@@ -196,7 +184,6 @@ function ensureBackLinkStyles(): void {
 export function setupBackLinkNavigation(delayMs = 220): void {
   ensureBackLinkStyles();
   const navigateWithTransition = createPageTransitionNavigator(delayMs);
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   document.addEventListener("click", (event) => {
     if (!(event.target instanceof Element) || !(event instanceof MouseEvent)) {
@@ -220,21 +207,13 @@ export function setupBackLinkNavigation(delayMs = 220): void {
     }
 
     event.preventDefault();
-
-    if (canUseHistoryBack()) {
-      if (prefersReducedMotion) {
-        window.history.back();
-        return;
-      }
-
-      document.body.classList.add("page-leaving");
-      setTimeout(() => {
-        window.history.back();
-      }, delayMs);
-      return;
+    try {
+      window.sessionStorage.removeItem(LANDING_SCROLL_STORAGE_KEY);
+    } catch {
+      // Ignore blocked storage access and continue to root navigation.
     }
 
-    navigateWithTransition(link.href);
+    navigateWithTransition("/");
   });
 }
 
